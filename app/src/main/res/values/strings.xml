@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">MemoryKeeper</string>
+    <string name="app_name">记忆管家</string>
+    <string name="gsonIsNull">gson == null</string>
+    <string name="MEDIA_TYPE">application/json; charset=UTF-8</string>
+    <string name="baseUrl">http://39.99.167.141:8079/</string>
+    <string name="errorCode">errorCode</string>
+    <string name="loginFail">登录失效，请重新登录</string>
+    <string name="PARSE_ERROR_MSG">解析数据失败</string>
+    <string name="errorMsg">errorMsg</string>
+    <string name="loading">加载中</string>
+    <string name="BAD_NETWORK_MSG">网络问题</string>
+    <string name="CONNECT_ERROR_MSG">连接错误</string>
+    <string name="CONNECT_TIMEOUT_MSG">连接超时</string>
+    <string name="OTHER_MSG">未知错误</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="study">学习</string>
+    <string name="mine">我的</string>
+    <string name="create_bag">创建卡包</string>
+    <string name="double_quit">再按一次退出</string>
 </resources>

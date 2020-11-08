@@ -5,6 +5,9 @@ import android.app.Application;
 import android.content.Context;
 
 import com.didichuxing.doraemonkit.DoraemonKit;
+import com.xcynice.memorykeeper.util.ActivityUtil;
+import com.xcynice.memorykeeper.util.LogUtil;
+import com.xcynice.memorykeeper.util.XUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -40,14 +43,14 @@ public class MyApplication extends Application {
         //开启性能检测
         DoraemonKit.install(this, "4c1a9451268716a4fdabfd22eb026357");
         //初始化
-//        XUtil.initialize(this);
+        XUtil.initialize(this);
         //初始化缓存，并设置缓存时间为一天
         RetrofitCache.getInstance().init(this).setDefaultTimeUnit(TimeUnit.DAYS).setDefaultTime(1);
         //设置打印开关
-//        LogUtil.setIsLog(true);
+        LogUtil.setIsLog(true);
         instance = this;
         //注册Activity生命周期
-//        registerActivityLifecycleCallbacks(ActivityUtil.getActivityLifecycleCallbacks());
+       registerActivityLifecycleCallbacks(ActivityUtil.getActivityLifecycleCallbacks());
 
     }
 }
