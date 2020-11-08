@@ -41,7 +41,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         //开启性能检测
-        DoraemonKit.install(this, "4c1a9451268716a4fdabfd22eb026357");
+        DoraemonKit.install(this, "5cfa766f3c69248ffe61860520efa0fd");
         //初始化
         XUtil.initialize(this);
         //初始化缓存，并设置缓存时间为一天
