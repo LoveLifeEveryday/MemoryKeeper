@@ -18,4 +18,6 @@
     <string name="mine">我的</string>
     <string name="create_bag">创建卡包</string>
     <string name="double_quit">再按一次退出</string>
+
+    <string name="created_card_bag_hint">请填写卡包名称（2~20字）</string>
 </resources>
