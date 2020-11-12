@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xcynice.memorykeeper">
+        package="com.xcynice.memorykeeper">
 
     <application
-        android:name=".app.MyApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".module.main.activity.CreateCardActivity"></activity>
+            android:name=".app.MyApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".module.mine.activity.ForgetPasswordActivity"></activity>
+        <activity android:name=".module.mine.activity.ResgisterActivity" />
+        <activity android:name=".module.mine.activity.LoginActivity" />
+        <activity android:name=".module.mine.activity.MineInfoActivity" />
+        <activity android:name=".module.main.activity.CreateCardActivity" />
         <activity android:name=".module.main.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +24,11 @@
         </activity>
 
         <meta-data
-            android:name="android.notch_support"
-            android:value="true" /> <!-- 沉浸式状态栏 适配小米刘海屏 -->
+                android:name="android.notch_support"
+                android:value="true" /> <!-- 沉浸式状态栏 适配小米刘海屏 -->
         <meta-data
-            android:name="notch.config"
-            android:value="portrait|landscape" />
+                android:name="notch.config"
+                android:value="portrait|landscape" />
     </application>
 
 </manifest>

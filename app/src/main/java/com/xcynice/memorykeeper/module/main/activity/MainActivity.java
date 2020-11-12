@@ -7,22 +7,17 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
+
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-import androidx.viewpager.widget.ViewPager;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
-import com.xcynice.memorykeeper.module.main.adapter.MainViewPagerAdapter;
-import com.xcynice.memorykeeper.module.main.listener.MainBnvListener;
-import com.xcynice.memorykeeper.module.main.listener.MainVpListener;
+
 import com.xcynice.memorykeeper.util.ActivityUtil;
 import com.xcynice.memorykeeper.util.ToastUtil;
-import androidx.navigation.fragment.NavHostFragment;
 
 
 import butterknife.BindView;
@@ -65,7 +60,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        initViewPager();
+
         initListeners();
 
 
@@ -79,11 +74,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    private void initViewPager() {
-        MainViewPagerAdapter adapter = new MainViewPagerAdapter(getSupportFragmentManager());
-       /* mVpMain.setOffscreenPageLimit(2);
-        mVpMain.setAdapter(adapter);*/
-    }
+
 
 
     private void initListeners() {
@@ -125,9 +116,6 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    public void hideBottomView(){
-        mBnvMain.setVisibility(View.GONE);
-    }
 
 
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:id="@+id/title_bar"
+        android:background="#151932"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="top">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="top"
+            android:layout_height="45dp">
+
+        <ImageView
+                android:id="@+id/title_bar_return"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_back"
+                android:foregroundGravity="center" />
+
+        <TextView
+                android:id="@+id/title_bar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:visibility="visible"
+                android:paddingLeft="75dp"
+                android:paddingRight="75dp"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+
+        <TextView
+                android:id="@+id/title_bar_right_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="8dp"
+                android:text="右部"
+                android:visibility="gone"
+                android:textSize="16sp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:textColor="#ffffff" />
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+

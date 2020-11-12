@@ -1,14 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".module.mine.MineFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:background="#151932"
         android:layout_height="match_parent"
-        android:text="我的" />
+        android:orientation="vertical"
+        tools:context=".module.mine.MineFragment">
 
-</FrameLayout>
+    <include layout="@layout/title_bar" />
+
+
+    <LinearLayout
+            android:id="@+id/ll_head"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_width="80dp"
+                android:backgroundTint="#71e6d4"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_head" />
+
+        <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登陆/注册"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:textSize="20dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#ffffff" />
+
+        <ImageView
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_gravity="center_vertical"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_right_arrow" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+            android:id="@+id/rl_mine_card_bag"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的卡包"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:textSize="20dp" />
+
+        <ImageView
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_width="20dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_right_arrow"
+                android:layout_centerVertical="true"
+                android:layout_height="20dp" />
+    </RelativeLayout>
+    <View
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262c50"/>
+    <RelativeLayout
+
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的收藏"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:textSize="20dp" />
+
+        <ImageView
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_width="20dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_right_arrow"
+                android:layout_centerVertical="true"
+                android:layout_height="20dp" />
+    </RelativeLayout>
+
+</LinearLayout>
