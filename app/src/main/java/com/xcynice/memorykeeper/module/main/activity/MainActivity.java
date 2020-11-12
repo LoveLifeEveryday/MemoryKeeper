@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity {
 
 
     private void initViewPager() {
-        MainViewPagerAdapter adapter = new MainViewPagerAdapter(getSupportFragmentManager());
+        MainViewPagerAdapter adapter = new MainViewPagerAdapter(getSupportFragmentManager(),mBnvMain);
         mVpMain.setOffscreenPageLimit(2);
         mVpMain.setAdapter(adapter);
     }

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#171930"
+        tools:context=".module.mine.activity.ResgisterActivity">
+
+    <include layout="@layout/title_bar" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账号注册"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="#ffffff" />
+
+    <LinearLayout
+            android:padding="5dp"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginHorizontal="20dp"
+            android:background="#393e54"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+86"
+                android:textSize="20dp"
+                android:textColor="#ffffff" />
+
+        <EditText
+                android:inputType="number"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:hint="请输入手机号"
+                android:layout_marginLeft="20dp"
+                android:textColorHint="#757a90"
+                android:textColor="#ffffff"
+                android:layout_marginRight="@dimen/dp_10"
+                android:padding="@dimen/dp_10"
+                android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:padding="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#393e54"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码"
+                android:textSize="20dp"
+                android:textColor="#ffffff" />
+
+        <EditText
+                android:inputType="textPassword"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:hint="请填写密码"
+                android:layout_marginLeft="20dp"
+                android:textColorHint="#757a90"
+                android:textColor="#ffffff"
+                android:layout_marginRight="@dimen/dp_10"
+                android:padding="@dimen/dp_10"
+                android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:padding="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#393e54"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码"
+                android:textSize="20dp"
+                android:textColor="#ffffff" />
+
+        <EditText
+                android:inputType="textPassword"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:hint="请再次输入密码"
+                android:layout_marginLeft="20dp"
+                android:textColorHint="#757a90"
+                android:textColor="#ffffff"
+                android:layout_marginRight="@dimen/dp_10"
+                android:padding="@dimen/dp_10"
+                android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+
+    <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登陆"
+            android:padding="@dimen/dp_10"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="60dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_login"
+            android:textColor="#001b28" />
+
+
+    <TextView
+
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登陆代表您已阅读并同意用户协议及隐私政策"
+            android:textColor="#6a6f85" />
+</LinearLayout>
