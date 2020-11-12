@@ -4,7 +4,7 @@ package com.xcynice.memorykeeper.app;
 import android.app.Application;
 import android.content.Context;
 
-import com.didichuxing.doraemonkit.DoraemonKit;
+
 import com.xcynice.memorykeeper.util.ActivityUtil;
 import com.xcynice.memorykeeper.util.LogUtil;
 import com.xcynice.memorykeeper.util.XUtil;
@@ -41,7 +41,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         //开启性能检测
-        DoraemonKit.install(this, "5cfa766f3c69248ffe61860520efa0fd");
+//        DoraemonKit.install(this, "5cfa766f3c69248ffe61860520efa0fd");
         //初始化
         XUtil.initialize(this);
         //初始化缓存，并设置缓存时间为一天

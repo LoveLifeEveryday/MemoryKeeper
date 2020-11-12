@@ -1,5 +1,7 @@
 package com.xcynice.memorykeeper.module.main.activity;
 
+import android.view.View;
+
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -88,4 +90,10 @@ public class MainActivity extends BaseActivity {
             ActivityUtil.closeAllActivity();
         }
     }
+
+    public void hideBottomView(){
+        mBnvMain.setVisibility(View.GONE);
+    }
+
+
 }

@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.module.CreateBag.CreateBagFragment;
+import com.xcynice.memorykeeper.module.main.activity.CreateCardActivity;
 import com.xcynice.memorykeeper.module.mine.MineFragment;
 import com.xcynice.memorykeeper.module.study.StudyFragment;
 import com.xcynice.memorykeeper.util.XUtil;
