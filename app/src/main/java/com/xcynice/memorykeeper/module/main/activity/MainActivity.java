@@ -1,7 +1,16 @@
 package com.xcynice.memorykeeper.module.main.activity;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -13,6 +22,8 @@ import com.xcynice.memorykeeper.module.main.listener.MainBnvListener;
 import com.xcynice.memorykeeper.module.main.listener.MainVpListener;
 import com.xcynice.memorykeeper.util.ActivityUtil;
 import com.xcynice.memorykeeper.util.ToastUtil;
+import androidx.navigation.fragment.NavHostFragment;
+
 
 import butterknife.BindView;
 
@@ -25,13 +36,14 @@ import butterknife.BindView;
  * @Description MainActivity
  */
 
-
+@SuppressLint("NonConstantResourceId")
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.vp_main)
-    ViewPager mVpMain;
+//    @BindView(R.id.vp_main)
+//    ViewPager mVpMain;
     @BindView(R.id.bnv_main)
     BottomNavigationView mBnvMain;
+    Activity activity = this;
 
 
     private static final int OVER_TIME = 2000;
@@ -55,6 +67,10 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         initViewPager();
         initListeners();
+
+
+
+
     }
 
     @Override
@@ -65,16 +81,34 @@ public class MainActivity extends BaseActivity {
 
     private void initViewPager() {
         MainViewPagerAdapter adapter = new MainViewPagerAdapter(getSupportFragmentManager());
-        mVpMain.setOffscreenPageLimit(2);
-        mVpMain.setAdapter(adapter);
+       /* mVpMain.setOffscreenPageLimit(2);
+        mVpMain.setAdapter(adapter);*/
     }
 
 
     private void initListeners() {
-        MainBnvListener bnvListener = new MainBnvListener(mVpMain);
-        MainVpListener vpListener = new MainVpListener(mBnvMain);
-        mVpMain.addOnPageChangeListener(vpListener);
-        mBnvMain.setOnNavigationItemSelectedListener(bnvListener);
+         mBnvMain.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.navigation_study:
+                                Navigation.findNavController(activity,R.id.main_nva_graph).navigate(R.id.navigation_study);
+                                break;
+                            case R.id.navigation_create_bag:
+                                Intent intent = new Intent(activity,CreateCardActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.navigation_mine:
+                                Navigation.findNavController(activity,R.id.main_nva_graph).navigate(R.id.navigation_mine);
+                                break;
+                                default:
+                                    break;
+
+                        }
+                        return true;
+                    }
+                });
     }
 
 

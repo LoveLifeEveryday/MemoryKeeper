@@ -1,17 +1,24 @@
 package com.xcynice.memorykeeper.module.CreateBag;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseFragment;
 import com.xcynice.memorykeeper.base.BasePresenter;
+import com.xcynice.memorykeeper.module.main.activity.CreateCardActivity;
 import com.xcynice.memorykeeper.module.main.activity.MainActivity;
 
 import butterknife.BindView;
@@ -31,6 +38,13 @@ public class CreateBagFragment extends BaseFragment {
     @BindView(R.id.remained_words_tv)
     TextView mRemainedWordsTv;
 
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_create_bag,container,false);
+        getActivity().startActivity(new Intent(getActivity(), CreateCardActivity.class));
+        return view;
+    }
 
     @Override
     protected BasePresenter createPresenter() {
@@ -44,8 +58,6 @@ public class CreateBagFragment extends BaseFragment {
 
     @Override
     protected void initView(){
-
-
         calculateEditCost();
 
     }
