@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xcynice.memorykeeper.R;
-import com.xcynice.memorykeeper.module.CreateBag.CreateBagFragment;
 import com.xcynice.memorykeeper.module.mine.MineFragment;
 import com.xcynice.memorykeeper.module.study.StudyFragment;
 import com.xcynice.memorykeeper.util.XUtil;
@@ -45,7 +44,7 @@ public class MainViewPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:
+           /* case 0:
                 mBottomNavigationView.setVisibility(View.VISIBLE);
                 return new StudyFragment();
             case 1:
@@ -53,7 +52,7 @@ public class MainViewPagerAdapter extends FragmentStatePagerAdapter {
                 return new CreateBagFragment();
             case 2:
                 mBottomNavigationView.setVisibility(View.VISIBLE);
-                return new MineFragment();
+                return new MineFragment();*/
             default:
                 //noinspection ConstantConditions
                 return null;

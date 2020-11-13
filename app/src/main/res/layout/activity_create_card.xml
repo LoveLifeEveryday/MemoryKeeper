@@ -5,12 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    tools:context=".module.CreateBag.CreateBagFragment">
+    android:background="#F5F5F5">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="#FFFFFF	"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +31,7 @@
             android:layout_centerInParent="true"
             android:gravity="center_horizontal"
             android:text="创建卡包"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +43,6 @@
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:padding="15sp"
         android:text="* 卡包头像"
         android:textSize="14sp"
@@ -122,18 +120,20 @@
     <EditText
         android:id="@+id/brief_introduction_edit"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:background="#FFFFFF	"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="请填写卡包简介（小于六百字）"
+        android:hint="请填写卡包简介（小于一百字）"
         android:inputType="textMultiLine"
         android:lineSpacingExtra="2dp"
         android:maxLength="600"
         android:paddingStart="12dp"
-        android:paddingTop = "8dp"
+        android:paddingTop="8dp"
         android:paddingEnd="8dp"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/switch1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,8 +159,20 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
-        android:text="0/600字"
+        android:text="0/100字"
         app:layout_constraintBottom_toBottomOf="@+id/brief_introduction_edit"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+
+        android:layout_marginBottom="100dp"
+        android:text="是否公开 "
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/brief_introduction_edit"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

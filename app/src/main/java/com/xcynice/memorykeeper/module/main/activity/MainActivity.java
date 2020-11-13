@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 
@@ -16,6 +15,7 @@ import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
 
+import com.xcynice.memorykeeper.module.CreateBag.CreateCardActivity;
 import com.xcynice.memorykeeper.util.ActivityUtil;
 import com.xcynice.memorykeeper.util.ToastUtil;
 
@@ -60,12 +60,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
         initListeners();
-
-
-
-
     }
 
     @Override
@@ -87,7 +82,7 @@ public class MainActivity extends BaseActivity {
                                 Navigation.findNavController(activity,R.id.main_nva_graph).navigate(R.id.navigation_study);
                                 break;
                             case R.id.navigation_create_bag:
-                                Intent intent = new Intent(activity,CreateCardActivity.class);
+                                Intent intent = new Intent(activity, CreateCardActivity.class);
                                 startActivity(intent);
                                 break;
                             case R.id.navigation_mine:

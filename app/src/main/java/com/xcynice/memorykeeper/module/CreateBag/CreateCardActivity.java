@@ -1,73 +1,69 @@
 package com.xcynice.memorykeeper.module.CreateBag;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.Layout;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import com.xcynice.memorykeeper.R;
-import com.xcynice.memorykeeper.base.BaseFragment;
+import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
-import com.xcynice.memorykeeper.module.main.activity.CreateCardActivity;
-import com.xcynice.memorykeeper.module.main.activity.MainActivity;
 
 import butterknife.BindView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CreateBagFragment#} factory method to
- * create an instance of this fragment.
- */
-@SuppressLint("NonConstantResourceId")
-public class CreateBagFragment extends BaseFragment {
+public class CreateCardActivity extends BaseActivity {
 
-
-
-    @BindView(R.id.brief_introduction_edit)
+  /*  @BindView(R.id.brief_introduction_edit)
     EditText mBriefIntroductionEdit;
     @BindView(R.id.remained_words_tv)
-    TextView mRemainedWordsTv;
+    TextView mRemainedWordsTv;*/
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_create_bag,container,false);
-        getActivity().startActivity(new Intent(getActivity(), CreateCardActivity.class));
-        return view;
-    }
-
+    /**
+     * 创建 presenter
+     *
+     * @return presenter
+     */
     @Override
     protected BasePresenter createPresenter() {
         return null;
     }
 
+    /**
+     * 得到布局文件 id
+     *
+     * @return layout id
+     */
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_create_bag;
+        return R.layout.fragment_release_card;
     }
 
+    /**
+     * 初始化布局
+     */
     @Override
-    protected void initView(){
-        calculateEditCost();
+    protected void initView() {
+//        calculateEditCost();
+
+    }
+
+    /**
+     * 初始化数据
+     */
+    @Override
+    protected void initData() {
 
     }
 
     /**
      * 计算字数
      */
-    private void calculateEditCost() {
+    /*private void calculateEditCost() {
         //记录字数上限
-        int wordLimitNum= 600;
+        int wordLimitNum= 100;
         mBriefIntroductionEdit.addTextChangedListener(new TextWatcher() {
             //记录输入的字数
             private CharSequence enterWords;
@@ -90,7 +86,7 @@ public class CreateBagFragment extends BaseFragment {
                 //已输入字数
                 enteredWords= wordLimitNum - s.length();
                 //TextView显示剩余字数
-                mRemainedWordsTv.setText(600 - enteredWords+ "/600字");
+                mRemainedWordsTv.setText(100 - enteredWords+ "/100字");
                 selectionStart = mBriefIntroductionEdit.getSelectionStart();
                 selectionEnd = mBriefIntroductionEdit.getSelectionEnd();
                 if (enterWords.length() > wordLimitNum) {
@@ -103,17 +99,7 @@ public class CreateBagFragment extends BaseFragment {
                 }
             }
         });
-    }
-
-    @Override
-    protected void initData() {
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-    }
+    }*/
 
 
 }
