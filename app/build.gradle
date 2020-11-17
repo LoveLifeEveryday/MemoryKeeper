@@ -123,4 +123,11 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    //图片选择库
+    implementation 'com.zhihu.android:matisse:0.5.3-beta3'
+
+    //权限申请框架
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+
 }

@@ -2,7 +2,13 @@ package com.xcynice.memorykeeper.http;
 
 
 import com.xcynice.memorykeeper.R;
+import com.xcynice.memorykeeper.base.BaseBean;
+import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.util.XUtil;
+
+import io.reactivex.Observable;
+import retrofit2.http.Body;
+import retrofit2.http.Query;
 
 /**
  * @Author 许朋友爱玩
@@ -18,6 +24,15 @@ public class API {
 
     @SuppressWarnings("AlibabaClassNamingShouldBeCamel")
     public interface IFarmApi {
+
+        //----------------【卡包相关】-------------------
+
+        /**
+         *  新建卡包
+         * @param cardBag 卡包实例
+         * @return
+         */
+        Observable<BaseBean<CardBag>> createNewCardBag(@Body CardBag cardBag);
 
     }
 

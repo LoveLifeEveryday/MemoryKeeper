@@ -15,7 +15,7 @@ import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
 
-import com.xcynice.memorykeeper.module.CreateBag.CreateCardActivity;
+import com.xcynice.memorykeeper.module.CreateBag.activity.CreateCardActivity;
 import com.xcynice.memorykeeper.util.ActivityUtil;
 import com.xcynice.memorykeeper.util.ToastUtil;
 
@@ -60,7 +60,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
         initListeners();
+
+
+
+
     }
 
     @Override
