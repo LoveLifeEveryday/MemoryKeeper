@@ -8,6 +8,7 @@ import com.xcynice.memorykeeper.util.XUtil;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
@@ -32,6 +33,8 @@ public class API {
          * @param cardBag 卡包实例
          * @return
          */
+
+        @POST("cardBag/add")
         Observable<BaseBean<CardBag>> createNewCardBag(@Body CardBag cardBag);
 
     }

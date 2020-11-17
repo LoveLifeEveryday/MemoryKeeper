@@ -119,8 +119,7 @@
     <EditText
         android:id="@+id/create_card_brief_introduction_edit"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="130dp"
         android:background="#FFFFFF	"
         android:ems="10"
         android:gravity="start|top"
@@ -132,7 +131,6 @@
         android:paddingTop="8dp"
         android:paddingEnd="8dp"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/create_card_if_public_switch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,12 +168,12 @@
         android:id="@+id/create_card_if_public_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:thumb="@drawable/switch_thumb"
         android:track="@drawable/switch_track_selector"
-        app:layout_constraintBottom_toTopOf="@+id/create_card_to_create_tv"
         app:layout_constraintEnd_toEndOf="@+id/create_card_brief_introduction_edit"
+        app:layout_constraintTop_toBottomOf="@+id/create_card_brief_introduction_edit"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
@@ -186,15 +184,17 @@
         android:text="是否公开"
         app:layout_constraintBottom_toBottomOf="@+id/create_card_if_public_switch"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/create_card_if_public_switch" />
+        app:layout_constraintTop_toTopOf="@+id/create_card_if_public_switch"
+        app:layout_constraintVertical_bias="1.0" />
 
     <View
-        android:layout_width="match_parent"
+        android:id="@+id/view"
+        android:layout_width="0dp"
         android:layout_height="1sp"
         android:layout_marginTop="8dp"
         android:background="#33979797"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/create_card_if_public_switch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,4 +26,13 @@ public interface ICreateBagView extends BaseView {
      * 获取图片
      */
     void getImage();
+
+    /**
+     * 新建卡包成功
+     */
+    void onSuccess();
+    /**
+     * 获取卡包失败
+     */
+    void onFailure(String errorMsg);
 }

@@ -31,13 +31,12 @@ public class CreateBagPresenter extends BasePresenter<ICreateBagView> {
              */
             @Override
             public void onSuccess(BaseBean<CardBag> o) {
-
-
+                baseView.onSuccess();
             }
 
             @Override
             public void onError(String msg) {
-
+                baseView.onFailure(msg);
             }
         });
     }

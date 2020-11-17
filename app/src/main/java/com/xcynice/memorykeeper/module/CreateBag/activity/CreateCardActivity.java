@@ -24,11 +24,14 @@ import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.module.CreateBag.presenter.CreateBagPresenter;
 import com.xcynice.memorykeeper.module.CreateBag.view.ICreateBagView;
+import com.xcynice.memorykeeper.util.LogUtil;
+import com.xcynice.memorykeeper.util.ToastUtil;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.engine.impl.GlideEngine;
 
 import java.net.URI;
+import java.net.URL;
 import java.util.List;
 
 public class CreateCardActivity extends BaseActivity<CreateBagPresenter> implements ICreateBagView, View.OnClickListener {
@@ -95,6 +98,7 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
             }
         });
         mCreateCardPortraitImage.setOnClickListener(this);
+        mCreateCardToCreateTv.setOnClickListener(this);
     }
 
     /**
@@ -199,6 +203,23 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
                 });
     }
 
+    /**
+     * 新建卡包成功
+     */
+    @Override
+    public void onSuccess() {
+        ToastUtil.showCenterToast("新建成功");
+
+    }
+
+    /**
+     * 获取卡包失败
+     */
+    @Override
+    public void onFailure(String errorMsg) {
+        ToastUtil.showCenterToast(errorMsg);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -221,8 +242,9 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
                 getImage();
                 break;
             case R.id.create_card_to_create_tv:
+                LogUtil.d("点击了按钮");
                 CardBag cardBag = getCardBag();
-
+                presenter.createNewCardBag(cardBag);
                 break;
         }
     }
