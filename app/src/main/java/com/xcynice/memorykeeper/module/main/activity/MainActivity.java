@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -39,6 +40,9 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.bnv_main)
     BottomNavigationView mBnvMain;
     Activity activity = this;
+    private TextView mTitleBarText;
+
+
 
 
     private static final int OVER_TIME = 2000;
@@ -62,6 +66,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
 
         initListeners();
+        mTitleBarText = findViewById(R.id.title_bar_text);
 
 
 

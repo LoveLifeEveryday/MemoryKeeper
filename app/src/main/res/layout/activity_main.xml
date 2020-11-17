@@ -7,7 +7,6 @@
     tools:context=".module.main.activity.MainActivity">
 
 
-
     <fragment
         android:id="@+id/main_nva_graph"
         android:name="androidx.navigation.fragment.NavHostFragment"

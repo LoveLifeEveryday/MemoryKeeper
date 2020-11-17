@@ -6,7 +6,7 @@
     app:startDestination="@id/navigation_study">
     <fragment
         android:id="@+id/navigation_study"
-        android:name="com.xcynice.memorykeeper.module.study.StudyFragment"
+        android:name="com.xcynice.memorykeeper.module.study.fragment.StudyFragment"
         android:label="fragment_mine"
         tools:layout="@layout/fragment_study" />
 

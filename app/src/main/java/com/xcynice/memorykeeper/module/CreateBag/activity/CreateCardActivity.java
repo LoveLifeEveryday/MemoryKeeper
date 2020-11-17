@@ -30,10 +30,13 @@ import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.engine.impl.GlideEngine;
 
-import java.net.URI;
-import java.net.URL;
 import java.util.List;
 
+/**
+ * @author Yuki-r
+ * @date on 2020/11/17
+ * @describle  新建卡包的Activity
+ */
 public class CreateCardActivity extends BaseActivity<CreateBagPresenter> implements ICreateBagView, View.OnClickListener {
 
 
@@ -46,7 +49,7 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     private Switch mCreateCardIfPublicSwitch;
     private TextView mRemainedWordsTv;
-    private Boolean ifPublic ;
+    private Boolean ifPublic =false ;
     private final int REQUEST_CODE_CHOOSE= 115;
     private List<Uri> mSelected;
     private RxPermissions rxPermissions ;
@@ -78,7 +81,7 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
     @Override
     protected void initView() {
         rxPermissions = new RxPermissions(this);
-        mCancelBackBtn = findViewById(R.id.cancelBackBtn);
+        mCancelBackBtn = findViewById(R.id.refresh_iv);
         mCreateCardPortraitImage = findViewById(R.id.create_card_portrait_image);
         mCreateCardNameEdit = findViewById(R.id.create_card_name_tv);
         mCreateCardBriefIntroductionEdit = findViewById(R.id.create_card_brief_introduction_edit);
@@ -168,14 +171,17 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
      */
     @Override
     public CardBag getCardBag() {
-        String cardName = mCreateCardNameEdit.getText().toString();
-        String cardInfo = mCreateCardBriefIntroductionEdit.getText().toString();
-        CardBag cardBag = new CardBag();
-        cardBag.setPic(mPortraitUri);
-        cardBag.setName(cardName);
-        cardBag.setInfo(cardInfo);
-        cardBag.setIfPrivate(ifPublic);
-        return cardBag;
+
+            String cardName = mCreateCardNameEdit.getText().toString();
+            String cardInfo = mCreateCardBriefIntroductionEdit.getText().toString();
+            CardBag cardBag = new CardBag();
+            cardBag.setPic(mPortraitUri);
+            cardBag.setName(cardName);
+            cardBag.setInfo(cardInfo);
+            cardBag.setIfPrivate(ifPublic);
+            return cardBag;
+
+
     }
 
     /**
@@ -243,6 +249,18 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
                 break;
             case R.id.create_card_to_create_tv:
                 LogUtil.d("点击了按钮");
+                if (mPortraitUri==null){
+                    ToastUtil.showCenterToast("头像不能为空");
+                    return ;
+                }
+                if (mCreateCardNameEdit.getText().toString().equals("")) {
+                    ToastUtil.showCenterToast("卡包名称不能为空");
+                    return ;
+                }
+                if (mCreateCardBriefIntroductionEdit.getText().toString().equals("")) {
+                    ToastUtil.showCenterToast("卡包描述不能为空");
+                    return ;
+                }
                 CardBag cardBag = getCardBag();
                 presenter.createNewCardBag(cardBag);
                 break;

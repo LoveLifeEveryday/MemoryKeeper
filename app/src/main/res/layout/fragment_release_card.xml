@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/cancelBackBtn"
+            android:id="@+id/refresh_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -39,7 +39,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/cancelBackBtn"
+            app:layout_constraintStart_toStartOf="@+id/refresh_iv"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView

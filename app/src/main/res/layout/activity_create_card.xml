@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <ImageView
-            android:id="@+id/cancelBackBtn"
+            android:id="@+id/refresh_iv"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:gravity="center_vertical"
@@ -34,7 +34,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/cancelBackBtn"
+            app:layout_constraintStart_toStartOf="@+id/refresh_iv"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -186,15 +186,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/create_card_if_public_switch"
         app:layout_constraintVertical_bias="1.0" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="1sp"
-        android:layout_marginTop="8dp"
-        android:background="#33979797"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_card_if_public_switch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,6 @@
 package com.xcynice.memorykeeper.module.main.adapter;
 
 
-import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -11,8 +9,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xcynice.memorykeeper.R;
-import com.xcynice.memorykeeper.module.mine.MineFragment;
-import com.xcynice.memorykeeper.module.study.StudyFragment;
 import com.xcynice.memorykeeper.util.XUtil;
 
 import java.util.ArrayList;
