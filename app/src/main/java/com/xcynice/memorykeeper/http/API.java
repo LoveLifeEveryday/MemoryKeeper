@@ -5,6 +5,7 @@ import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseBean;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.bean.CardBagList;
+import com.xcynice.memorykeeper.bean.CollectList;
 import com.xcynice.memorykeeper.bean.UserInfo;
 import com.xcynice.memorykeeper.util.XUtil;
 
@@ -65,6 +66,10 @@ public class API {
 
         @GET("user/checkLogin")
         Observable<BaseBean<UserInfo>> getUserInfo();
+
+
+        @GET("collect/get")
+        Observable<BaseBean<CollectList>> getMineCollect(@Query("pageSize") String pageSize,@Query("pageNum") String pageNum);
 
     }
 

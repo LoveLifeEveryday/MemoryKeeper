@@ -21,7 +21,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".module.mine.activity.MineCardBagActivity"></activity>
+        <activity android:name=".module.mine.activity.CollectListActivity"></activity>
+        <activity android:name=".module.mine.activity.MineCardBagActivity" />
         <activity android:name=".module.mine.activity.ForgetPasswordActivity" />
         <activity android:name=".module.mine.activity.ResgisterActivity" />
         <activity android:name=".module.mine.activity.LoginActivity" />

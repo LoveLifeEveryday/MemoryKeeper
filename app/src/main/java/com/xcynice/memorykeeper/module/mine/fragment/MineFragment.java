@@ -10,6 +10,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseFragment;
 import com.xcynice.memorykeeper.bean.UserInfo;
+import com.xcynice.memorykeeper.module.mine.activity.CollectListActivity;
 import com.xcynice.memorykeeper.module.mine.activity.LoginActivity;
 import com.xcynice.memorykeeper.module.mine.activity.MineCardBagActivity;
 import com.xcynice.memorykeeper.module.mine.activity.MineInfoActivity;
@@ -96,7 +97,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
                 ActivityUtil.startActivity(MineCardBagActivity.class);
                 break;
             case R.id.rl_mine_collect:
-                ToastUtil.showToast("跳转到我的收藏");
+                ActivityUtil.startActivity(CollectListActivity.class);
                 break;
             case R.id.ll_head:
                 if (SpUtil.getBoolean(SpUtil.IS_LOGIN)) {
