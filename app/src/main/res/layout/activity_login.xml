@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#171930"
+        android:background="#ffffff"
         tools:context=".module.mine.activity.LoginActivity">
 
     <include layout="@layout/title_bar" />
@@ -16,13 +16,14 @@
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginLeft="20dp"
             android:textSize="20dp"
-            android:textColor="#ffffff" />
+            android:textStyle="bold"
+            android:textColor="#0B0B0B" />
 
     <LinearLayout
             android:padding="5dp"
             android:layout_marginTop="@dimen/dp_40"
             android:layout_marginHorizontal="20dp"
-            android:background="#393e54"
+            android:background="#f3f5f8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="+86"
                 android:textSize="20dp"
-                android:textColor="#ffffff" />
+                android:textColor="#050505" />
 
         <EditText
                 android:id="@+id/et_phone"
@@ -53,7 +54,7 @@
             android:padding="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
-            android:background="#393e54"
+            android:background="#f5f4f9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -64,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="密码"
                 android:textSize="20dp"
-                android:textColor="#ffffff" />
+                android:textColor="#050505" />
 
         <EditText
                 android:id="@+id/et_password"
@@ -117,7 +118,7 @@
             android:layout_marginHorizontal="60dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bg_login"
-            android:textColor="#001b28" />
+            android:textColor="#ffffff" />
 
 
     <TextView

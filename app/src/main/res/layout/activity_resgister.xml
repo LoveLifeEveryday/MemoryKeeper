@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#171930"
+        android:background="#ffffff"
         tools:context=".module.mine.activity.ResgisterActivity">
 
     <include layout="@layout/title_bar" />
@@ -16,13 +16,14 @@
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginLeft="20dp"
             android:textSize="20dp"
-            android:textColor="#ffffff" />
+            android:textStyle="bold"
+            android:textColor="#050505" />
 
     <LinearLayout
             android:padding="5dp"
             android:layout_marginTop="@dimen/dp_40"
             android:layout_marginHorizontal="20dp"
-            android:background="#393e54"
+            android:background="#f4f4f9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="+86"
                 android:textSize="20dp"
-                android:textColor="#ffffff" />
+                android:textColor="#050505" />
 
         <EditText
                 android:inputType="number"
@@ -52,7 +53,7 @@
             android:padding="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
-            android:background="#393e54"
+            android:background="#f4f4f9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -63,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:text="密码"
                 android:textSize="20dp"
-                android:textColor="#ffffff" />
+                android:textColor="#050505" />
 
         <EditText
                 android:inputType="textPassword"
@@ -84,7 +85,7 @@
             android:padding="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
-            android:background="#393e54"
+            android:background="#f4f4f9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -95,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:text="密码"
                 android:textSize="20dp"
-                android:textColor="#ffffff" />
+                android:textColor="#050505" />
 
         <EditText
                 android:inputType="textPassword"
@@ -118,13 +119,13 @@
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="登陆"
+            android:text="注册"
             android:padding="@dimen/dp_10"
             android:layout_marginTop="50dp"
             android:layout_marginHorizontal="60dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bg_login"
-            android:textColor="#001b28" />
+            android:textColor="#ffffff" />
 
 
     <TextView
