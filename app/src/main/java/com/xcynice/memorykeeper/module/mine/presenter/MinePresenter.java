@@ -21,7 +21,7 @@ public class MinePresenter extends BasePresenter<IMineView> {
 
 
 
-    public void test(){
+    public void getUserInfo(){
         addDisposable(apiServer.getUserInfo(), new BaseObserver<BaseBean<UserInfo>>(baseView) {
 
 

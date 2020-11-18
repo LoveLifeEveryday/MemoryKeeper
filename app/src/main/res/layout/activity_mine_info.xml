@@ -57,6 +57,7 @@
                 android:layout_alignParentRight="true" />
 
         <TextView
+                android:id="@+id/tv_name"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:textSize="20dp"
@@ -90,6 +91,7 @@
                 android:layout_alignParentRight="true" />
 
         <TextView
+                android:id="@+id/tv_phone"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:textSize="20dp"

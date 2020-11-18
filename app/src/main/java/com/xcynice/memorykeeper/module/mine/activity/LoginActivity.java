@@ -38,6 +38,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
     Button mBtnLogin;
     @BindView(R.id.tv_register)
     TextView mTvRegister;
+    @BindView(R.id.tv_forget_password)
+    TextView mTvForgetPasword;
     @BindView(R.id.title_bar)
     LinearLayout mLlTitle;
     @BindView(R.id.title_bar_return)
@@ -90,5 +92,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
     @OnClick({R.id.tv_register})
     public void goRegister() {
         ActivityUtil.startActivity(ResgisterActivity.class);
+    }
+
+
+    @OnClick(R.id.tv_forget_password)
+    public void goForget(){
+        ActivityUtil.startActivity(ForgetPasswordActivity.class);
     }
 }

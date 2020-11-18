@@ -64,7 +64,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
             mTvName.setText("登陆/注册");
         } else {
             //如果已经登陆
-            presenter.test();
+            presenter.getUserInfo();
         }
     }
 
@@ -76,7 +76,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
             mTvName.setText("登陆/注册");
         } else {
             //如果已经登陆
-            presenter.test();
+            presenter.getUserInfo();
         }
     }
 
