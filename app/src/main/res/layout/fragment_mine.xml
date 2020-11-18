@@ -5,7 +5,7 @@
         android:background="#151932"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".module.mine.MineFragment">
+        tools:context=".module.mine.fragment.MineFragment">
 
     <include layout="@layout/title_bar" />
 
@@ -17,6 +17,7 @@
             android:layout_height="wrap_content">
 
         <ImageView
+                android:id="@+id/iv_head_icon"
                 android:layout_marginLeft="@dimen/dp_10"
                 android:layout_width="80dp"
                 android:backgroundTint="#71e6d4"
@@ -28,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="登陆/注册"
-                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginLeft="20dp"
                 android:textSize="20dp"
                 android:layout_gravity="center_vertical"
                 android:textColor="#ffffff" />
@@ -45,6 +46,7 @@
     <RelativeLayout
             android:id="@+id/rl_mine_card_bag"
             android:layout_marginTop="30dp"
+            android:padding="@dimen/dp_10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -64,13 +66,16 @@
                 android:layout_centerVertical="true"
                 android:layout_height="20dp" />
     </RelativeLayout>
+
     <View
             android:layout_marginTop="@dimen/dp_10"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#262c50"/>
-    <RelativeLayout
+            android:background="#262c50" />
 
+    <RelativeLayout
+            android:id="@+id/rl_mine_collect"
+            android:padding="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

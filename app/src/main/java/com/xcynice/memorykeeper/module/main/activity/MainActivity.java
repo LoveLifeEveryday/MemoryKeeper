@@ -8,18 +8,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import androidx.navigation.Navigation;
-
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
-
 import com.xcynice.memorykeeper.module.CreateBag.activity.CreateCardActivity;
 import com.xcynice.memorykeeper.util.ActivityUtil;
 import com.xcynice.memorykeeper.util.ToastUtil;
-
 
 import butterknife.BindView;
 
@@ -35,7 +30,7 @@ import butterknife.BindView;
 @SuppressLint("NonConstantResourceId")
 public class MainActivity extends BaseActivity {
 
-//    @BindView(R.id.vp_main)
+    //    @BindView(R.id.vp_main)
 //    ViewPager mVpMain;
     @BindView(R.id.bnv_main)
     BottomNavigationView mBnvMain;
@@ -69,8 +64,6 @@ public class MainActivity extends BaseActivity {
         mTitleBarText = findViewById(R.id.title_bar_text);
 
 
-
-
     }
 
     @Override
@@ -79,27 +72,24 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
-
-
     private void initListeners() {
-         mBnvMain.setOnNavigationItemSelectedListener(
+        mBnvMain.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
                             case R.id.navigation_study:
-                                Navigation.findNavController(activity,R.id.main_nva_graph).navigate(R.id.navigation_study);
+                                Navigation.findNavController(activity, R.id.main_nva_graph).navigate(R.id.navigation_study);
                                 break;
                             case R.id.navigation_create_bag:
                                 Intent intent = new Intent(activity, CreateCardActivity.class);
                                 startActivity(intent);
                                 break;
                             case R.id.navigation_mine:
-                                Navigation.findNavController(activity,R.id.main_nva_graph).navigate(R.id.navigation_mine);
+                                Navigation.findNavController(activity, R.id.main_nva_graph).navigate(R.id.navigation_mine);
                                 break;
-                                default:
-                                    break;
+                            default:
+                                break;
 
                         }
                         return true;
@@ -120,7 +110,6 @@ public class MainActivity extends BaseActivity {
             ActivityUtil.closeAllActivity();
         }
     }
-
 
 
 }

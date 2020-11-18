@@ -1,4 +1,4 @@
-package com.xcynice.memorykeeper.module.mine;
+package com.xcynice.memorykeeper.module.mine.fragment;
 
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseFragment;
@@ -28,7 +28,6 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-
     }
 
     @Override

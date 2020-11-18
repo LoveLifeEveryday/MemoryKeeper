@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/navigation_mine"
-        android:name="com.xcynice.memorykeeper.module.mine.MineFragment"
+        android:name="com.xcynice.memorykeeper.module.mine.fragment.MineFragment"
         android:label="fragment_mine"
         tools:layout="@layout/fragment_mine" />
 

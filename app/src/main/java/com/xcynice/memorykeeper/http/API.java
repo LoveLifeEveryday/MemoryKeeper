@@ -31,7 +31,8 @@ public class API {
         //----------------【卡包相关】-------------------
 
         /**
-         *  新建卡包
+         * 新建卡包
+         *
          * @param cardBag 卡包实例
          * @return
          */
@@ -41,12 +42,26 @@ public class API {
 
         /**
          * 分页获取自己的所有卡包
+         *
          * @param pageSize 页数，默认为5
-         * @param pageNum 页码，默认为1
+         * @param pageNum  页码，默认为1
          * @return
          */
         @GET("cardBag/getMyBag")
         Observable<BaseBean<CardBagList>> getCardBagList(@Query("pageSize") String pageSize, @Query("pageNum") String pageNum);
+
+        /**
+         * 登陆
+         *
+         * @param password 密码
+         * @param phone    手机号
+         * @param code     code
+         * @return 是否登陆成功
+         */
+        @POST("user/login")
+        Observable<BaseBean<String>> login(@Query("password") String password, @Query("phone") String phone, @Query("code") String code);
+
+
 
     }
 

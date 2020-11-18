@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * @author Yuki-r
  * @date on 2020/11/17
- * @describle  新建卡包的Activity
+ * @describle 新建卡包的Activity
  */
 public class CreateCardActivity extends BaseActivity<CreateBagPresenter> implements ICreateBagView, View.OnClickListener {
 
@@ -49,13 +49,10 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     private Switch mCreateCardIfPublicSwitch;
     private TextView mRemainedWordsTv;
-    private Boolean ifPublic =false ;
-    private final int REQUEST_CODE_CHOOSE= 115;
+    private Boolean ifPublic = false;
+    private final int REQUEST_CODE_CHOOSE = 115;
     private List<Uri> mSelected;
-    private RxPermissions rxPermissions ;
-
-
-
+    private RxPermissions rxPermissions;
 
 
     /**
@@ -67,7 +64,6 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
     protected CreateBagPresenter createPresenter() {
         return new CreateBagPresenter(this);
     }
-
 
 
     @Override
@@ -95,8 +91,8 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     ifPublic = true;
-                }else{
-                    ifPublic =false;
+                } else {
+                    ifPublic = false;
                 }
             }
         });
@@ -117,7 +113,7 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
      */
     private void calculateEditCost() {
         //记录字数上限
-        int wordLimitNum= 100;
+        int wordLimitNum = 100;
         mCreateCardBriefIntroductionEdit.addTextChangedListener(new TextWatcher() {
             //记录输入的字数
             private CharSequence enterWords;
@@ -132,15 +128,15 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 //实时记录输入的字数
-                enterWords= s;
+                enterWords = s;
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 //已输入字数
-                enteredWords= wordLimitNum - s.length();
+                enteredWords = wordLimitNum - s.length();
                 //TextView显示剩余字数
-                mRemainedWordsTv.setText(100 - enteredWords+ "/100字");
+                mRemainedWordsTv.setText(100 - enteredWords + "/100字");
                 selectionStart = mCreateCardBriefIntroductionEdit.getSelectionStart();
                 selectionEnd = mCreateCardBriefIntroductionEdit.getSelectionEnd();
                 if (enterWords.length() > wordLimitNum) {
@@ -172,14 +168,14 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
     @Override
     public CardBag getCardBag() {
 
-            String cardName = mCreateCardNameEdit.getText().toString();
-            String cardInfo = mCreateCardBriefIntroductionEdit.getText().toString();
-            CardBag cardBag = new CardBag();
-            cardBag.setPic(mPortraitUri);
-            cardBag.setName(cardName);
-            cardBag.setInfo(cardInfo);
-            cardBag.setIfPrivate(ifPublic);
-            return cardBag;
+        String cardName = mCreateCardNameEdit.getText().toString();
+        String cardInfo = mCreateCardBriefIntroductionEdit.getText().toString();
+        CardBag cardBag = new CardBag();
+        cardBag.setPic(mPortraitUri);
+        cardBag.setName(cardName);
+        cardBag.setInfo(cardInfo);
+        cardBag.setIfPrivate(ifPublic);
+        return cardBag;
 
 
     }
@@ -191,9 +187,9 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
     @Override
     public void getImage() {
         rxPermissions.request(Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .subscribe(granted -> {
-                    if (granted){
+                    if (granted) {
                         Matisse.from(CreateCardActivity.this)
                                 .choose(MimeType.ofImage())
                                 .countable(false)
@@ -202,7 +198,7 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
                                 .thumbnailScale(0.85f)
                                 .imageEngine(new GlideEngine())
                                 .forResult(REQUEST_CODE_CHOOSE);
-                    }else{
+                    } else {
                         //拒绝权限申请
                         Toast.makeText(CreateCardActivity.this, "未授权权限，部分功能不能使用", Toast.LENGTH_SHORT).show();
                     }
@@ -229,7 +225,7 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==REQUEST_CODE_CHOOSE&&resultCode==RESULT_OK){
+        if (requestCode == REQUEST_CODE_CHOOSE && resultCode == RESULT_OK) {
             mSelected = Matisse.obtainResult(data); //获取宣主任图片的路径
             Glide.with(this).load(mSelected.get(0)).into(mCreateCardPortraitImage); //加载图片
             mPortraitUri = mSelected.get(0).toString();
@@ -249,17 +245,17 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
                 break;
             case R.id.create_card_to_create_tv:
                 LogUtil.d("点击了按钮");
-                if (mPortraitUri==null){
+                if (mPortraitUri == null) {
                     ToastUtil.showCenterToast("头像不能为空");
-                    return ;
+                    return;
                 }
                 if (mCreateCardNameEdit.getText().toString().equals("")) {
                     ToastUtil.showCenterToast("卡包名称不能为空");
-                    return ;
+                    return;
                 }
                 if (mCreateCardBriefIntroductionEdit.getText().toString().equals("")) {
                     ToastUtil.showCenterToast("卡包描述不能为空");
-                    return ;
+                    return;
                 }
                 CardBag cardBag = getCardBag();
                 presenter.createNewCardBag(cardBag);
