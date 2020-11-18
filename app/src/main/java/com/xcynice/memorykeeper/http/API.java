@@ -5,7 +5,6 @@ import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseBean;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.bean.CardBagList;
-import com.xcynice.memorykeeper.bean.Test;
 import com.xcynice.memorykeeper.bean.UserInfo;
 import com.xcynice.memorykeeper.util.XUtil;
 
@@ -64,17 +63,8 @@ public class API {
         Observable<BaseBean<String>> login(@Query("password") String password, @Query("phone") String phone, @Query("code") String code);
 
 
-        /**
-         * 得到用户信息
-         *
-         * @return 用户信息
-         */
-        @GET("cardBag/getMyBag")
-        Observable<BaseBean<UserInfo>> getUserInfo();
-
-
         @GET("user/checkLogin")
-        Observable<BaseBean<Test>> test();
+        Observable<BaseBean<UserInfo>> getUserInfo();
 
     }
 

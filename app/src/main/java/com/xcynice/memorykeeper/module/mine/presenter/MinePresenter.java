@@ -3,7 +3,6 @@ package com.xcynice.memorykeeper.module.mine.presenter;
 import com.xcynice.memorykeeper.base.BaseBean;
 import com.xcynice.memorykeeper.base.BaseObserver;
 import com.xcynice.memorykeeper.base.BasePresenter;
-import com.xcynice.memorykeeper.bean.Test;
 import com.xcynice.memorykeeper.bean.UserInfo;
 import com.xcynice.memorykeeper.module.mine.view.IMineView;
 
@@ -20,8 +19,11 @@ public class MinePresenter extends BasePresenter<IMineView> {
     }
 
 
-    public void getUserInfo() {
+
+
+    public void test(){
         addDisposable(apiServer.getUserInfo(), new BaseObserver<BaseBean<UserInfo>>(baseView) {
+
 
             @Override
             public void onSuccess(BaseBean<UserInfo> o) {
@@ -30,24 +32,7 @@ public class MinePresenter extends BasePresenter<IMineView> {
 
             @Override
             public void onError(String msg) {
-                baseView.getUserInfoFail(msg);
-            }
-        });
-    }
-
-
-    public void test(){
-        addDisposable(apiServer.test(), new BaseObserver<BaseBean<Test>>(baseView) {
-
-
-            @Override
-            public void onSuccess(BaseBean<Test> o) {
-                baseView.testSuccess(o.data);
-            }
-
-            @Override
-            public void onError(String msg) {
-
+baseView.getUserInfoFail(msg);
             }
         });
     }

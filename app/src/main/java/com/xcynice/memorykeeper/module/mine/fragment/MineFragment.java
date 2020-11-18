@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseFragment;
-import com.xcynice.memorykeeper.bean.Test;
 import com.xcynice.memorykeeper.bean.UserInfo;
 import com.xcynice.memorykeeper.module.mine.activity.LoginActivity;
 import com.xcynice.memorykeeper.module.mine.activity.MineInfoActivity;
@@ -65,7 +64,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
             mTvName.setText("登陆/注册");
         } else {
             //如果已经登陆
-            presenter.getUserInfo();
+            presenter.test();
         }
     }
 
@@ -77,13 +76,13 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
             mTvName.setText("登陆/注册");
         } else {
             //如果已经登陆
-            presenter.getUserInfo();
+            presenter.test();
         }
     }
 
     @Override
     protected void initData() {
-        presenter.test();
+
     }
 
     @OnClick({R.id.rl_mine_card_bag, R.id.rl_mine_collect, R.id.ll_head})
@@ -109,17 +108,12 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
 
 
     @Override
-    public void getUserInfoSuccess(UserInfo userInfo) {
-      //  mTvName.setText(userInfo.getUserName());
-    }
-
-    @Override
     public void getUserInfoFail(String msg) {
         ToastUtil.showToast(msg);
     }
 
     @Override
-    public void testSuccess(Test test) {
+    public void getUserInfoSuccess(UserInfo test) {
         mTvName.setText(test.getUserName());
     }
 }

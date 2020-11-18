@@ -1,7 +1,6 @@
 package com.xcynice.memorykeeper.module.mine.view;
 
 import com.xcynice.memorykeeper.base.BaseView;
-import com.xcynice.memorykeeper.bean.Test;
 import com.xcynice.memorykeeper.bean.UserInfo;
 
 /**
@@ -12,10 +11,10 @@ import com.xcynice.memorykeeper.bean.UserInfo;
  * @description :
  */
 public interface IMineView extends BaseView {
-    void getUserInfoSuccess(UserInfo userInfo);
+
 
     void getUserInfoFail(String msg);
 
 
-    void testSuccess(Test test);
+    void getUserInfoSuccess(UserInfo test);
 }

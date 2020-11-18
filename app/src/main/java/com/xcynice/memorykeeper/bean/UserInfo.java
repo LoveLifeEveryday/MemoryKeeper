@@ -2,7 +2,7 @@ package com.xcynice.memorykeeper.bean;
 
 /**
  * @author : xucanyou666
- * @date : 2020/11/18 10:55
+ * @date : 2020/11/18 15:28
  * @github : https://github.com/LoveLifeEveryday
  * @juejin : https://juejin.im/user/325111175192590/posts
  * @description :
@@ -17,18 +17,16 @@ public class UserInfo {
      * avatar : www.test.com
      * registTime : 2020-11-11T03:11:05.000+00:00
      * userInfo : null
-     * avatarUrl : null
      */
 
 
     private int userId;
     private String userName;
-    private String password;
+    private Object password;
     private String phone;
     private String avatar;
     private String registTime;
-    private String userInfo;
-    private String avatarUrl;
+    private Object userInfo;
 
     public int getUserId() {
         return userId;
@@ -50,7 +48,7 @@ public class UserInfo {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(Object password) {
         this.password = password;
     }
 
@@ -82,16 +80,8 @@ public class UserInfo {
         return userInfo;
     }
 
-    public void setUserInfo(String userInfo) {
+    public void setUserInfo(Object userInfo) {
         this.userInfo = userInfo;
     }
 
-    public Object getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
 }
-
