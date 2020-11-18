@@ -68,7 +68,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
 
     @Override
     public void loginSuccess(String msg) {
-        ToastUtil.showToast(msg);
         SpUtil.setBoolean(IS_LOGIN, true);
         finish();
     }

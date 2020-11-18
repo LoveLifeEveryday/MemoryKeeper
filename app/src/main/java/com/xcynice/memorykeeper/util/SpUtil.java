@@ -15,6 +15,7 @@ import java.lang.reflect.Type;
  */
 public class SpUtil {
     private static final String FILE_NAME = "config";
+    public static final String COOKIE = "cookie";
 
     public static final String IS_LOGIN = "isLogin";
     public static final String USERNAME = "username";

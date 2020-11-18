@@ -33,9 +33,9 @@ import butterknife.BindView;
 public class StudyFragment extends BaseFragment<StudyPresenter> implements  IStudyView {
 
     @BindView(R.id.card_bag_rv)
-    ImageView mRefreshIv;
+    RecyclerView mRefreshIv;
     @BindView(R.id.refresh_iv)
-    RecyclerView mCardBagRv;
+    ImageView mCardBagRv;
 
 
     @Override

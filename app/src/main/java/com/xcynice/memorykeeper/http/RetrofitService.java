@@ -3,10 +3,8 @@ package com.xcynice.memorykeeper.http;
 
 import com.xcynice.memorykeeper.http.gson.BaseConverterFactory;
 
-import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
+import ren.yale.android.retrofitcachelibrx2.RetrofitCache;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -56,15 +54,7 @@ public class RetrofitService {
      */
     private RetrofitService() {
 
-        //配置okHttp并设置时间、日志信息和cookies
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(httpLoggingInterceptor)
-                //设置超时时间
-                .connectTimeout(15, TimeUnit.SECONDS)
-                .build();
-
+        OkHttpClient okHttpClient = Okhttp3Client.getInstance().getOkHttpClient();
 
         //关联okHttp并加上rxJava和Gson的配置和baseUrl
         Retrofit retrofit = new Retrofit.Builder()
@@ -74,7 +64,7 @@ public class RetrofitService {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(API.BASE_URL)
                 .build();
-
+        RetrofitCache.getInstance().addRetrofit(retrofit);
         apiServer = retrofit.create(API.IFarmApi.class);
     }
 }

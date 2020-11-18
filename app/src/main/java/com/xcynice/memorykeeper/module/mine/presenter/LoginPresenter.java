@@ -19,8 +19,7 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
     }
 
     public void login(String password, String phone) {
-        addDisposable(apiServer.login(password, phone, "1231"), new BaseObserver<BaseBean<String>>(baseView, true) {
-
+        addDisposable(apiServer.login(password, phone, "1231"), new BaseObserver<BaseBean<String>>(baseView, false) {
 
             @Override
             public void onSuccess(BaseBean<String> o) {
@@ -29,7 +28,7 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
 
             @Override
             public void onError(String msg) {
-                baseView.loginFail("登陆失败");
+                baseView.loginFail(msg);
 
             }
         });
