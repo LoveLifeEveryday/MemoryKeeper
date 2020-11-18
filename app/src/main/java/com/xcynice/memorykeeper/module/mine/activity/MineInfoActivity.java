@@ -23,7 +23,8 @@ public class MineInfoActivity extends BaseActivity<MinePresenter> implements IMi
     LinearLayout mLlTitle;
     @BindView(R.id.title_bar_return)
     ImageView mIvBack;
-
+    @BindView(R.id.title_bar_text)
+    TextView mTvTitle;
 
     @BindView(R.id.tv_name)
     TextView mTvName;
@@ -45,6 +46,7 @@ public class MineInfoActivity extends BaseActivity<MinePresenter> implements IMi
     @Override
     protected void initView() {
         mIvBack.setVisibility(View.INVISIBLE);
+        mTvTitle.setText("个人设置");
         ImmersionBar.with(this).titleBar(mLlTitle).init();
     }
 

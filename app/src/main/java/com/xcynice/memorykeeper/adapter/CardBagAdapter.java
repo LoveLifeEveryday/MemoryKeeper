@@ -1,7 +1,6 @@
 package com.xcynice.memorykeeper.adapter;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.bean.CardBag;
 
@@ -21,18 +20,19 @@ public class CardBagAdapter extends BaseQuickAdapter<CardBag, BaseViewHolder> {
 
     /**
      * 在此方法中设置 item 数据
+     *
      * @param baseViewHolder
      * @param cardBag
      */
     @Override
     protected void convert(@NotNull BaseViewHolder baseViewHolder, CardBag cardBag) {
-        if (cardBag.isIfPrivate()){
+        if (cardBag.isIfPrivate()) {
             privacyText = "私有";
-        }else{
+        } else {
             privacyText = "公开";
         }
-        baseViewHolder.setText(R.id.item_card_bag_name,cardBag.getName());
-        baseViewHolder.setText(R.id.item_card_bag_if_public,privacyText);
+        baseViewHolder.setText(R.id.item_card_bag_name, cardBag.getName());
+        baseViewHolder.setText(R.id.item_card_bag_if_public, privacyText);
 //        baseViewHolder.setImageDrawable(R.id.item_portrait_image,);
 
     }

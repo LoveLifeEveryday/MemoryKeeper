@@ -11,7 +11,9 @@ import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseFragment;
 import com.xcynice.memorykeeper.bean.UserInfo;
 import com.xcynice.memorykeeper.module.mine.activity.LoginActivity;
+import com.xcynice.memorykeeper.module.mine.activity.MineCardBagActivity;
 import com.xcynice.memorykeeper.module.mine.activity.MineInfoActivity;
+import com.xcynice.memorykeeper.module.mine.adapter.MineCardBagAdapter;
 import com.xcynice.memorykeeper.module.mine.presenter.MinePresenter;
 import com.xcynice.memorykeeper.module.mine.view.IMineView;
 import com.xcynice.memorykeeper.util.ActivityUtil;
@@ -37,6 +39,8 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
     ImageView mIvBack;
     @BindView(R.id.tv_name)
     TextView mTvName;
+    @BindView(R.id.title_bar_text)
+    TextView mTvTitle;
 
     @BindView(R.id.rl_mine_card_bag)
     RelativeLayout mRlCardBag;
@@ -59,13 +63,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
     protected void initView() {
         mIvBack.setVisibility(View.INVISIBLE);
         ImmersionBar.with(this).titleBar(mLlTitle).init();
-        //如果还没有登陆
-        if (!SpUtil.getBoolean(SpUtil.IS_LOGIN)) {
-            mTvName.setText("登陆/注册");
-        } else {
-            //如果已经登陆
-            presenter.getUserInfo();
-        }
+        mTvTitle.setText("个人中心");
     }
 
 
@@ -73,11 +71,17 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
     public void onResume() {
         super.onResume();
         if (!SpUtil.getBoolean(SpUtil.IS_LOGIN)) {
+            mRlCardBag.setVisibility(View.GONE);
+            mRlCollect.setVisibility(View.GONE);
             mTvName.setText("登陆/注册");
         } else {
             //如果已经登陆
+            mRlCardBag.setVisibility(View.VISIBLE);
+            mRlCollect.setVisibility(View.VISIBLE);
             presenter.getUserInfo();
+
         }
+
     }
 
     @Override
@@ -89,7 +93,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_mine_card_bag:
-                ToastUtil.showToast("跳转到我的卡包");
+                ActivityUtil.startActivity(MineCardBagActivity.class);
                 break;
             case R.id.rl_mine_collect:
                 ToastUtil.showToast("跳转到我的收藏");
