@@ -45,7 +45,7 @@ public class MineInfoActivity extends BaseActivity<MinePresenter> implements IMi
 
     @Override
     protected void initView() {
-        mIvBack.setVisibility(View.INVISIBLE);
+
         mTvTitle.setText("个人设置");
         ImmersionBar.with(this).titleBar(mLlTitle).init();
     }

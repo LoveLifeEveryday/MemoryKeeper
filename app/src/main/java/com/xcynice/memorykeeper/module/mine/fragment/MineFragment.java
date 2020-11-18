@@ -72,13 +72,13 @@ public class MineFragment extends BaseFragment<MinePresenter> implements IMineVi
     public void onResume() {
         super.onResume();
         if (!SpUtil.getBoolean(SpUtil.IS_LOGIN)) {
-            mRlCardBag.setVisibility(View.GONE);
-            mRlCollect.setVisibility(View.GONE);
+//            mRlCardBag.setVisibility(View.GONE);
+//            mRlCollect.setVisibility(View.GONE);
             mTvName.setText("登陆/注册");
         } else {
             //如果已经登陆
-            mRlCardBag.setVisibility(View.VISIBLE);
-            mRlCollect.setVisibility(View.VISIBLE);
+//            mRlCardBag.setVisibility(View.VISIBLE);
+//            mRlCollect.setVisibility(View.VISIBLE);
             presenter.getUserInfo();
 
         }

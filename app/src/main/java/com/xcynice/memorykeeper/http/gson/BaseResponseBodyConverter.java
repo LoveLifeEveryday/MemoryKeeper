@@ -3,6 +3,8 @@ package com.xcynice.memorykeeper.http.gson;
 import com.google.gson.TypeAdapter;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseException;
+import com.xcynice.memorykeeper.module.mine.activity.LoginActivity;
+import com.xcynice.memorykeeper.util.ActivityUtil;
 import com.xcynice.memorykeeper.util.SpUtil;
 import com.xcynice.memorykeeper.util.XUtil;
 
@@ -44,7 +46,7 @@ public class BaseResponseBodyConverter<T> implements Converter<ResponseBody, T> 
                     data = XUtil.getApplication().getString(R.string.loginFail);
                     // 处理登录失效 更新
                     SpUtil.setBoolean(SpUtil.IS_LOGIN, false);
-
+                    ActivityUtil.startActivity(LoginActivity.class);
                 } else {
                     data = object.getString(XUtil.getApplication().getString(R.string.errorMsg));
                 }
