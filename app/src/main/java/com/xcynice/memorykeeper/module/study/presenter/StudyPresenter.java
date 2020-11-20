@@ -18,64 +18,40 @@ public class StudyPresenter extends BasePresenter<IStudyView> {
     }
 
     /**
-     * 第一次获取卡包数据
+     *  第一次获取卡包
      */
-    public void getCardBagFirst(){
-        getCardBagRefresh(true);
+    public void getCardBagFirst() {
+        addDisposable(apiServer.getCardBagList(10 + "", 1 + ""), new BaseObserver<BaseBean<CardBagList>>(baseView) {
+
+
+            @Override
+            public void onSuccess(BaseBean<CardBagList> o) {
+                baseView.getCardBagFirstSuccess(o.data);
+            }
+
+            @Override
+            public void onError(String msg) {
+                baseView.getCardBagFail(msg);
+            }
+        });
     }
 
     /**
-     * 刷新获取卡包数据
+     * 加载更多
+     * @param page
      */
-    public void getCardBagByRefresh(){
-        getCardBagRefresh(false);
-    }
+    public void getCardBagMore(int page) {
+        addDisposable(apiServer.getCardBagList(10 + "", page + ""), new BaseObserver<BaseBean<CardBagList>>(baseView) {
+            @Override
+            public void onSuccess(BaseBean<CardBagList> o) {
+                baseView.getCardBagMoreSuccess(o.data);
+            }
 
-
-    /**
-     *  获取卡包列表
-     * @param ifFirst 判断是第一次获取还是刷新获取
-     */
-    public void getCardBagRefresh(boolean ifFirst){
-        //第一次获取
-        if (ifFirst){
-            addDisposable(apiServer.getCardBagList("5", "1"), new BaseObserver<BaseBean<CardBagList>>(baseView,true) {
-
-                /**
-                 * 完成
-                 *
-                 * @param o 对象
-                 */
-                @Override
-                public void onSuccess(BaseBean<CardBagList> o) {
-                    baseView.setCardBagListFirst(o);
-                }
-
-                @Override
-                public void onError(String msg) {
-                    baseView.setCardBagError(msg);
-                }
-            });
-        }else {
-            addDisposable(apiServer.getCardBagList("5", "1"), new BaseObserver<BaseBean<CardBagList>>(baseView) {
-
-
-                /**
-                 * 完成
-                 *
-                 * @param o 对象
-                 */
-                @Override
-                public void onSuccess(BaseBean<CardBagList> o) {
-                    baseView.setCardBagRefresh(o);
-                }
-
-                @Override
-                public void onError(String msg) {
-                    baseView.setCardBagError(msg);
-                }
-            });
-        }
+            @Override
+            public void onError(String msg) {
+                baseView.getCardBagFail(msg);
+            }
+        });
     }
 
 }

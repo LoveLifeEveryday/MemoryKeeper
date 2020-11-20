@@ -11,35 +11,12 @@ import com.xcynice.memorykeeper.bean.CardBagList;
  */
 public interface IStudyView extends BaseView {
 
-    /**
-     *  第一次设置卡包数据
-     * @param cardBagList 卡包集合
-     */
-    void setCardBagListFirst(BaseBean<CardBagList> cardBagList);
 
 
-    /**
-     *  用刷新的方法设置卡包数据
-     * @param list 卡包集合
-     */
-    void setCardBagRefresh(BaseBean<CardBagList> list);
+    void getCardBagFirstSuccess(CardBagList cardBagList);
 
-    /**
-     * 设置卡包数据失败
-     * @param errorMsg 错误信息
-     */
-    void setCardBagError(String errorMsg);
+    void getCardBagMoreSuccess(CardBagList cardBagList);
 
+    void getCardBagFail(String msg);
 
-    /**
-     * 用加载更多的方式设置卡包数据
-     * @param list 卡包数据
-     */
-    void setCardBagByMore(BaseBean<CardBagList> list);
-
-    /**
-     *  加载更多失败
-     * @param errorMsg 失败信息
-     */
-    void showCardBagErrorMore(String errorMsg);
 }

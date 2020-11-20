@@ -1,8 +1,14 @@
-package com.xcynice.memorykeeper.adapter;
+package com.xcynice.memorykeeper.module.study.fragment;
+import android.text.TextUtils;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.bean.CardBag;
+import com.xcynice.memorykeeper.util.ActivityUtil;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -26,14 +32,18 @@ public class CardBagAdapter extends BaseQuickAdapter<CardBag, BaseViewHolder> {
      */
     @Override
     protected void convert(@NotNull BaseViewHolder baseViewHolder, CardBag cardBag) {
-        if (cardBag.isIfPrivate()) {
-            privacyText = "私有";
-        } else {
-            privacyText = "公开";
-        }
         baseViewHolder.setText(R.id.item_card_bag_name, cardBag.getName());
-        baseViewHolder.setText(R.id.item_card_bag_if_public, privacyText);
-//        baseViewHolder.setImageDrawable(R.id.item_portrait_image,);
+        if (cardBag.isIfPrivate()) {
+            baseViewHolder.setText(R.id.item_card_bag_if_public, "私有");
+        } else {
+            baseViewHolder.setText(R.id.item_card_bag_if_public, "公有");
+        }
+        ImageView imageView = baseViewHolder.getView(R.id.item_portrait_image);
+        if (!TextUtils.isEmpty(cardBag.getPic())) {
+            Glide.with(ActivityUtil.getCurrentActivity())
+                    .load(cardBag.getPic())
+                    .into(imageView);
+        }
 
     }
 }

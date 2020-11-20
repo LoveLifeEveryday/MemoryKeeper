@@ -37,8 +37,6 @@ public class MineCardBagPresenter extends BasePresenter<IMineCardBagView> {
 
     public void getCardBagMore(int page) {
         addDisposable(apiServer.getCardBagList(10 + "", page + ""), new BaseObserver<BaseBean<CardBagList>>(baseView) {
-
-
             @Override
             public void onSuccess(BaseBean<CardBagList> o) {
                 baseView.getCardBagMoreSuccess(o.data);

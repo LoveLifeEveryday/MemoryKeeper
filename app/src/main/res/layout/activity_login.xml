@@ -44,7 +44,6 @@
                 android:hint="请输入手机号"
                 android:layout_marginLeft="20dp"
                 android:textColorHint="#757a90"
-                android:textColor="#ffffff"
                 android:layout_marginRight="@dimen/dp_10"
                 android:padding="@dimen/dp_10"
                 android:layout_height="wrap_content" />
@@ -75,7 +74,6 @@
                 android:hint="请填写密码"
                 android:layout_marginLeft="20dp"
                 android:textColorHint="#757a90"
-                android:textColor="#ffffff"
                 android:layout_marginRight="@dimen/dp_10"
                 android:padding="@dimen/dp_10"
                 android:layout_height="wrap_content" />
