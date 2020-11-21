@@ -26,6 +26,7 @@ import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.module.CreateBag.presenter.CreateBagPresenter;
 import com.xcynice.memorykeeper.module.CreateBag.view.ICreateBagView;
+import com.xcynice.memorykeeper.module.study.activity.ReleaseCardActivity;
 import com.xcynice.memorykeeper.util.LogUtil;
 import com.xcynice.memorykeeper.util.ToastUtil;
 import com.zhihu.matisse.Matisse;
@@ -250,7 +251,7 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
                 getImage();
                 break;
             case R.id.create_card_to_create_tv:
-                LogUtil.d("点击了按钮");
+               /* LogUtil.d("点击了按钮");
                 if (mPortraitUri == null) {
                     ToastUtil.showCenterToast("头像不能为空");
                     return;
@@ -265,7 +266,9 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
                 }
                 CardBag cardBag = getCardBag();
                 presenter.createNewCardBag(cardBag);
-                break;
+                break;*/
+                startActivity(new Intent(this, ReleaseCardActivity.class));
+
         }
     }
 }

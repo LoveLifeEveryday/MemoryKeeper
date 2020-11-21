@@ -12,10 +12,9 @@
 
 
     <LinearLayout
-            android:background="#37c1c3"
+            android:background="#27bda2"
             android:paddingBottom="20dp"
             android:id="@+id/ll_head"
-
             android:paddingTop="@dimen/dp_10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
