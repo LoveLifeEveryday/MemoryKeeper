@@ -16,8 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
+import com.gyf.immersionbar.ImmersionBar;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
@@ -31,6 +33,8 @@ import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.engine.impl.GlideEngine;
 
 import java.util.List;
+
+import butterknife.BindView;
 
 /**
  * @author Yuki-r
@@ -53,7 +57,8 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
     private final int REQUEST_CODE_CHOOSE = 115;
     private List<Uri> mSelected;
     private RxPermissions rxPermissions;
-
+    @BindView(R.id.constraintLayout)
+    ConstraintLayout mClTitle;
 
     /**
      * 创建 presenter
@@ -76,6 +81,7 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
      */
     @Override
     protected void initView() {
+        ImmersionBar.with(this).titleBar(mClTitle).init();
         rxPermissions = new RxPermissions(this);
         mCancelBackBtn = findViewById(R.id.refresh_iv);
         mCreateCardPortraitImage = findViewById(R.id.create_card_portrait_image);

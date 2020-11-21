@@ -1,6 +1,7 @@
 package com.xcynice.memorykeeper.module.study.fragment;
 
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseBean;
 import com.xcynice.memorykeeper.base.BaseFragment;
@@ -33,9 +35,8 @@ import butterknife.BindView;
 public class StudyFragment extends BaseFragment<StudyPresenter> implements  IStudyView, BaseQuickAdapter.RequestLoadMoreListener {
     @BindView(R.id.card_bag_rv)
     RecyclerView mCardBagRv;
-    @BindView(R.id.refresh_iv)
-    ImageView mRefreshIv;
-
+    @BindView(R.id.title_bar_constraintLayout)
+    ConstraintLayout mClTitle;
     private CardBagAdapter mAdapter;
     private List<CardBag> mCardBagList = new ArrayList<>();
 
@@ -64,6 +65,7 @@ public class StudyFragment extends BaseFragment<StudyPresenter> implements  IStu
 
     @Override
     protected void initView() {
+        ImmersionBar.with(this).titleBar(mClTitle).init();
 
         mAdapter = new CardBagAdapter(R.layout.item_card_bag);
         mAdapter.setEnableLoadMore(true);
