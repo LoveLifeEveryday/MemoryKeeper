@@ -15,18 +15,18 @@ public class CardBag {
      * pic : http://39.99.167.141:9090/build/20200818/tomatoes-1280859_640.jpg
      */
 
-    private int cardBagId;
+    private String cardBagId;
     private int userId;
     private String name;
     private String info;
     private boolean ifPrivate;
     private String pic;
 
-    public int getCardBagId() {
+    public String getCardBagId() {
         return cardBagId;
     }
 
-    public void setCardBagId(int cardBagId) {
+    public void setCardBagId(String cardBagId) {
         this.cardBagId = cardBagId;
     }
 

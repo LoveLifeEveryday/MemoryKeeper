@@ -1,4 +1,4 @@
-package com.xcynice.memorykeeper.module.study.fragment;
+package com.xcynice.memorykeeper.module.study.adapter;
 import android.text.TextUtils;
 import android.widget.ImageView;
 

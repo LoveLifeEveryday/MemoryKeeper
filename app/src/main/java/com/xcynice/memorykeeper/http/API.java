@@ -52,6 +52,32 @@ public class API {
         @GET("cardBag/getMyBag")
         Observable<BaseBean<CardBagList>> getCardBagList(@Query("pageSize") String pageSize, @Query("pageNum") String pageNum);
 
+
+        /**
+         *
+         *  根据id删除卡包
+         * @param id
+         * @return
+         */
+        @GET("cardBag/delById")
+        Observable<BaseBean<String>> deleteCardBag(@Query("cardBagId") String id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /**
          * 登陆
          *

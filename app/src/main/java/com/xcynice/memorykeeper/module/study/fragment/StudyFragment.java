@@ -1,21 +1,22 @@
 package com.xcynice.memorykeeper.module.study.fragment;
 
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
-import com.xcynice.memorykeeper.base.BaseBean;
 import com.xcynice.memorykeeper.base.BaseFragment;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.bean.CardBagList;
-import com.xcynice.memorykeeper.module.study.fragment.CardBagAdapter;
+import com.xcynice.memorykeeper.module.study.activity.CardBagDetailActivity;
+import com.xcynice.memorykeeper.module.study.adapter.CardBagAdapter;
 import com.xcynice.memorykeeper.module.study.presenter.StudyPresenter;
 import com.xcynice.memorykeeper.module.study.view.IStudyView;
 import com.xcynice.memorykeeper.util.ToastUtil;
@@ -73,6 +74,20 @@ public class StudyFragment extends BaseFragment<StudyPresenter> implements  IStu
         mCardBagRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAdapter.setOnLoadMoreListener(this,mCardBagRv);
         mCardBagRv.setAdapter(mAdapter);
+        //item点击事件
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                CardBag cardBag = mCardBagList.get(i);
+                bundle.putString("id",cardBag.getCardBagId());
+                intent.putExtras(bundle);
+                intent.setClass(requireActivity(), CardBagDetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
