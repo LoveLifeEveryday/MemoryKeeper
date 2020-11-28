@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -29,12 +28,23 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center_horizontal"
-            android:text="创建卡包"
+            android:text="卡包详情"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/refresh_iv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完成"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -42,27 +52,37 @@
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:padding="10sp"
-        android:text="* 卡包头像"
+        android:text="卡包头像"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/create_card_name_tv" />
+
+    <ImageView
+        android:id="@+id/create_card_portrait_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="4dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="10sp"
-        android:text="* 卡包名称"
+        android:text="卡包名称"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -75,14 +95,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
 
-        <ImageView
-            android:id="@+id/create_card_portrait_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:padding="4dp"
-            android:src="@drawable/ic_add"
-            tools:layout_editor_absoluteX="68dp"
-            tools:layout_editor_absoluteY="122dp" />
     </LinearLayout>
 
 
@@ -101,20 +113,23 @@
         android:singleLine="true"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:padding="10sp"
-        android:text="  卡包简介"
+        android:text=" 卡包介绍"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_card_name_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
         android:id="@+id/create_card_brief_introduction_edit"
@@ -137,24 +152,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/create_card_to_create_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/bg_login"
-        android:gravity="center_horizontal"
-        android:padding="16dp"
-        android:text="确认创建"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/remained_words_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -164,27 +161,19 @@
         app:layout_constraintBottom_toBottomOf="@+id/create_card_brief_introduction_edit"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Switch
-        android:id="@+id/create_card_if_public_switch"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:thumb="@drawable/switch_thumb"
-        android:track="@drawable/switch_track_selector"
-        app:layout_constraintEnd_toEndOf="@+id/create_card_brief_introduction_edit"
-        app:layout_constraintTop_toBottomOf="@+id/create_card_brief_introduction_edit"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="是否私有"
-        app:layout_constraintBottom_toBottomOf="@+id/create_card_if_public_switch"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/create_card_if_public_switch"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_logout"
+        android:padding="@dimen/dp_10"
+        android:text="删除卡包"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

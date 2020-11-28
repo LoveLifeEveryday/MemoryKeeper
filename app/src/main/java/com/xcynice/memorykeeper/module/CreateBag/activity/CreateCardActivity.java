@@ -251,7 +251,7 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
                 getImage();
                 break;
             case R.id.create_card_to_create_tv:
-               /* LogUtil.d("点击了按钮");
+                LogUtil.d("点击了按钮");
                 if (mPortraitUri == null) {
                     ToastUtil.showCenterToast("头像不能为空");
                     return;
@@ -266,8 +266,8 @@ public class CreateCardActivity extends BaseActivity<CreateBagPresenter> impleme
                 }
                 CardBag cardBag = getCardBag();
                 presenter.createNewCardBag(cardBag);
-                break;*/
-                startActivity(new Intent(this, ReleaseCardActivity.class));
+                break;
+//                startActivity(new Intent(this, ReleaseCardActivity.class));
 
         }
     }
