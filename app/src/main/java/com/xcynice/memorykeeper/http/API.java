@@ -6,12 +6,14 @@ import com.xcynice.memorykeeper.base.BaseBean;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.bean.CardBagList;
 import com.xcynice.memorykeeper.bean.CollectList;
+import com.xcynice.memorykeeper.bean.UpdateCardBag;
 import com.xcynice.memorykeeper.bean.UserInfo;
 import com.xcynice.memorykeeper.util.XUtil;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -62,6 +64,14 @@ public class API {
         @GET("cardBag/delById")
         Observable<BaseBean<String>> deleteCardBag(@Query("cardBagId") String id);
 
+        /**
+         * 更新卡包
+         * @param id
+         * @return
+         */
+        @HTTP(method = "POST", path = "cardBag/upDate", hasBody = true)
+//        @POST("cardBag/upDate")
+        Observable<BaseBean<String>> updateCardBag(@Query("cardBagId") String id,@Body UpdateCardBag cardBag);
 
 
 

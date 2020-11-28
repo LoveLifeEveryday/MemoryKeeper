@@ -12,10 +12,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
+import com.xcynice.memorykeeper.bean.CardBag;
+import com.xcynice.memorykeeper.bean.UpdateCardBag;
 import com.xcynice.memorykeeper.module.study.presenter.CardBagDetailPresenter;
 import com.xcynice.memorykeeper.module.study.view.ICardBagDetailView;
 import com.xcynice.memorykeeper.util.LogUtil;
@@ -33,6 +36,27 @@ public class CardBagDetailActivity extends BaseActivity<CardBagDetailPresenter> 
     Button mBtnDeleteCard;
     @BindView(R.id.constraintLayout)
     ConstraintLayout mConstraintLayout;
+
+
+    private ConstraintLayout mConstraintLayout2;
+    private ImageView mCreateCardPortraitImage;
+    private TextView mTextView2;
+    private TextView mTextView3;
+    private EditText mCreateCardNameTv;
+    private TextView mTextView4;
+    private EditText mCreateCardBriefIntroductionEdit;
+    private TextView mRemainedWordsTv;
+
+
+
+    private TextView mUpdateTv;
+
+
+
+
+
+    private  CardBag cardBag;
+
 
 
     private final String TAG = "CardBagDetailActivity";
@@ -63,25 +87,60 @@ public class CardBagDetailActivity extends BaseActivity<CardBagDetailPresenter> 
      */
     @Override
     protected void initView() {
+
+
+
+        mCreateCardPortraitImage = findViewById(R.id.create_card_portrait_image);
+        mUpdateTv = findViewById(R.id.update_tv);
+
+        mCreateCardNameTv = findViewById(R.id.create_card_name_tv);
+        mCreateCardBriefIntroductionEdit = findViewById(R.id.create_card_brief_introduction_edit);
+        mRemainedWordsTv = findViewById(R.id.remained_words_tv);
+        mCreateCardPortraitImage = findViewById(R.id.create_card_portrait_image);
+        mCreateCardNameTv = findViewById(R.id.create_card_name_tv);
+
+
         ImmersionBar.with(this).titleBar(mConstraintLayout).init();
         //获取id
-        Bundle bundle = CardBagDetailActivity.this.getIntent().getExtras();
-        String id = bundle.getString("id");
-        Log.d(TAG, id);
+        Bundle bundle = this.getIntent().getExtras();
+        if (bundle != null){
+             cardBag =(CardBag) bundle.getSerializable("cardBag");
+        }
 
-        presenter.deleteCardBag(id);
+
+
+
+
+
+
+
+
 
         mBackIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
+
+        mBtnDeleteCard.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "点击了返回");
+                presenter.deleteCardBag(cardBag.getCardBagId());
             }
         });
-        mBtnDeleteCard.setOnClickListener(new View.OnClickListener() {
+        mUpdateTv.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "点击了删除");
+                String id = cardBag.getCardBagId();
+                UpdateCardBag updateCardBag = new UpdateCardBag();
+                updateCardBag.setName(mCreateCardNameTv.getText().toString());
+                updateCardBag.setInfo(mCreateCardBriefIntroductionEdit.getText().toString());
+                updateCardBag.setPic(cardBag.getPic());
+                presenter.updateCardBag(id,updateCardBag);
             }
         });
 
@@ -93,22 +152,20 @@ public class CardBagDetailActivity extends BaseActivity<CardBagDetailPresenter> 
      */
     @Override
     protected void initData() {
-
+        mCreateCardNameTv.setText(cardBag.getName());
+        mCreateCardBriefIntroductionEdit.setText(cardBag.getInfo());
+        Glide.with(this).load(cardBag.getPic()).into(mCreateCardPortraitImage);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_bag_detail);
-    }
+
 
     @Override
-    public void deleteSuccess(String msg) {
+    public void success(String msg) {
         ToastUtil.showToast(msg);
     }
 
     @Override
-    public void deleteFailure(String msg) {
+    public void failure(String msg) {
         ToastUtil.showToast(msg);
     }
 

@@ -9,7 +9,7 @@ import com.xcynice.memorykeeper.base.BaseView;
  */
 public interface ICardBagDetailView extends BaseView {
 
-    void deleteSuccess(String msg);
-    void deleteFailure(String msg);
+    void success(String msg);
+    void failure(String msg);
 
 }

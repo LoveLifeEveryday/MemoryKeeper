@@ -82,7 +82,8 @@ public class StudyFragment extends BaseFragment<StudyPresenter> implements  IStu
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 CardBag cardBag = mCardBagList.get(i);
-                bundle.putString("id",cardBag.getCardBagId());
+                bundle.putSerializable("cardBag",cardBag);
+//                bundle.putString("id",cardBag.getCardBagId());
                 intent.putExtras(bundle);
                 intent.setClass(requireActivity(), CardBagDetailActivity.class);
                 startActivity(intent);
