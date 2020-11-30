@@ -3,9 +3,11 @@ package com.xcynice.memorykeeper.http;
 
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseBean;
+import com.xcynice.memorykeeper.bean.Card;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.bean.CardBagList;
 import com.xcynice.memorykeeper.bean.CollectList;
+import com.xcynice.memorykeeper.bean.ResponseCard;
 import com.xcynice.memorykeeper.bean.UpdateCardBag;
 import com.xcynice.memorykeeper.bean.UserInfo;
 import com.xcynice.memorykeeper.util.XUtil;
@@ -74,6 +76,15 @@ public class API {
         Observable<BaseBean<String>> updateCardBag(@Query("cardBagId") String id,@Body UpdateCardBag cardBag);
 
 
+        /**
+         * 新增卡片
+         * @param card
+         * @return
+         */
+
+
+        @POST("card/add")
+        Observable<BaseBean<ResponseCard>> releaseCardBag(@Body Card card);
 
 
 

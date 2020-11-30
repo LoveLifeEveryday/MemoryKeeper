@@ -3,63 +3,36 @@ package com.xcynice.memorykeeper.module.study.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.gyf.immersionbar.ImmersionBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.bean.UpdateCardBag;
-import com.xcynice.memorykeeper.module.study.presenter.CardBagDetailPresenter;
-import com.xcynice.memorykeeper.module.study.view.ICardBagDetailView;
-import com.xcynice.memorykeeper.util.LogUtil;
-import com.xcynice.memorykeeper.util.ToastUtil;
 
-import butterknife.BindView;
+public class CardBagDetailActivity extends BaseActivity {
 
-public class CardBagDetailActivity extends BaseActivity<CardBagDetailPresenter> implements ICardBagDetailView {
-
-
-    @BindView(R.id.back_iv)
-    ImageView mBackIv;
-
-    @BindView(R.id.btn_delete_card)
-    Button mBtnDeleteCard;
-    @BindView(R.id.constraintLayout)
-    ConstraintLayout mConstraintLayout;
-
-
-    private ConstraintLayout mConstraintLayout2;
-    private ImageView mCreateCardPortraitImage;
-    private TextView mTextView2;
-    private TextView mTextView3;
-    private EditText mCreateCardNameTv;
-    private TextView mTextView4;
-    private EditText mCreateCardBriefIntroductionEdit;
-    private TextView mRemainedWordsTv;
-
-
-
-    private TextView mUpdateTv;
-
-
-
-
+    private ConstraintLayout mConstraintLayout;
+    private ImageView mBackIv;
+    private ConstraintLayout mCardBagConstraintLayout;
+    private ImageView mItemPortraitImage;
+    private TextView mItemCardBagName;
+    private TextView mItemCardBagIfPublic;
+    private Button mBtnGoStudy;
+    private FloatingActionButton mAddCard;
 
     private  CardBag cardBag;
 
-
-
-    private final String TAG = "CardBagDetailActivity";
+    public CardBagDetailActivity() {
+    }
 
 
     /**
@@ -68,8 +41,8 @@ public class CardBagDetailActivity extends BaseActivity<CardBagDetailPresenter> 
      * @return presenter
      */
     @Override
-    protected CardBagDetailPresenter createPresenter() {
-        return new CardBagDetailPresenter(this);
+    protected BasePresenter createPresenter() {
+        return null;
     }
 
     /**
@@ -87,64 +60,57 @@ public class CardBagDetailActivity extends BaseActivity<CardBagDetailPresenter> 
      */
     @Override
     protected void initView() {
-
-
-
-        mCreateCardPortraitImage = findViewById(R.id.create_card_portrait_image);
-        mUpdateTv = findViewById(R.id.update_tv);
-
-        mCreateCardNameTv = findViewById(R.id.create_card_name_tv);
-        mCreateCardBriefIntroductionEdit = findViewById(R.id.create_card_brief_introduction_edit);
-        mRemainedWordsTv = findViewById(R.id.remained_words_tv);
-        mCreateCardPortraitImage = findViewById(R.id.create_card_portrait_image);
-        mCreateCardNameTv = findViewById(R.id.create_card_name_tv);
-
-
-        ImmersionBar.with(this).titleBar(mConstraintLayout).init();
-        //获取id
+        mConstraintLayout = findViewById(R.id.constraintLayout);
+        mBackIv = findViewById(R.id.back_iv);
+        mCardBagConstraintLayout = findViewById(R.id.card_bag_constraintLayout);
+        mItemPortraitImage = findViewById(R.id.item_portrait_image);
+        mItemCardBagName = findViewById(R.id.item_card_bag_name);
+        mItemCardBagIfPublic = findViewById(R.id.item_card_bag_if_public);
+        mBtnGoStudy = findViewById(R.id.btn_go_study);
+        mAddCard = findViewById(R.id.add_card);
         Bundle bundle = this.getIntent().getExtras();
-        if (bundle != null){
-             cardBag =(CardBag) bundle.getSerializable("cardBag");
+        if (bundle != null) {
+            cardBag = (CardBag) bundle.getSerializable("cardBag");
         }
+        mAddCard.setOnClickListener(new View.OnClickListener() {
 
 
-
-
-
-
-
-
-
-
-        mBackIv.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Called when a view has been clicked.
+             *
+             * @param v The view that was clicked.
+             */
             @Override
             public void onClick(View v) {
-                finish();
-
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("cardBag",cardBag);
+//                bundle.putString("id",cardBag.getCardBagId());
+                intent.putExtras(bundle);
+                intent.setClass(CardBagDetailActivity.this, ReleaseCardActivity.class);
+                startActivity(intent);
+                startActivity(intent);
             }
         });
+        mCardBagConstraintLayout.setOnClickListener(new View.OnClickListener() {
 
-        mBtnDeleteCard.setOnClickListener(new View.OnClickListener() {
-
+            /**
+             * Called when a view has been clicked.
+             *
+             * @param v The view that was clicked.
+             */
             @Override
             public void onClick(View v) {
-                presenter.deleteCardBag(cardBag.getCardBagId());
+
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("cardBag",cardBag);
+//                bundle.putString("id",cardBag.getCardBagId());
+                intent.putExtras(bundle);
+                intent.setClass(CardBagDetailActivity.this, CardBagSettingActivity.class);
+                startActivity(intent);
             }
         });
-        mUpdateTv.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String id = cardBag.getCardBagId();
-                UpdateCardBag updateCardBag = new UpdateCardBag();
-                updateCardBag.setName(mCreateCardNameTv.getText().toString());
-                updateCardBag.setInfo(mCreateCardBriefIntroductionEdit.getText().toString());
-                updateCardBag.setPic(cardBag.getPic());
-                presenter.updateCardBag(id,updateCardBag);
-            }
-        });
-
-
     }
 
     /**
@@ -152,25 +118,15 @@ public class CardBagDetailActivity extends BaseActivity<CardBagDetailPresenter> 
      */
     @Override
     protected void initData() {
-        mCreateCardNameTv.setText(cardBag.getName());
-        mCreateCardBriefIntroductionEdit.setText(cardBag.getInfo());
-        Glide.with(this).load(cardBag.getPic()).into(mCreateCardPortraitImage);
+        mItemCardBagName.setText(cardBag.getName());
+        Glide.with(this).load(cardBag.getPic()).into(mItemPortraitImage);
+
+        if (cardBag.isIfPrivate()) {
+            mItemCardBagIfPublic.setText( "私有");
+        } else {
+            mItemCardBagIfPublic.setText( "公有");
+        }
     }
-
-
-
-    @Override
-    public void success(String msg) {
-        ToastUtil.showToast(msg);
-    }
-
-    @Override
-    public void failure(String msg) {
-        ToastUtil.showToast(msg);
-    }
-
-
-
 
 
 }

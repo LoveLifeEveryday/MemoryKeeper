@@ -16,6 +16,8 @@ import com.xcynice.memorykeeper.base.BaseFragment;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.bean.CardBagList;
 import com.xcynice.memorykeeper.module.study.activity.CardBagDetailActivity;
+import com.xcynice.memorykeeper.module.study.activity.CardBagSettingActivity;
+import com.xcynice.memorykeeper.module.study.activity.ReleaseCardActivity;
 import com.xcynice.memorykeeper.module.study.adapter.CardBagAdapter;
 import com.xcynice.memorykeeper.module.study.presenter.StudyPresenter;
 import com.xcynice.memorykeeper.module.study.view.IStudyView;
