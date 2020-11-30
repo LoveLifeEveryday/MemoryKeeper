@@ -2,6 +2,14 @@
 
 **记忆管家**是一个帮助用户提高记忆能力的学习软件，帮助用户从记忆的层次记住知识，而不是死记硬背，让你记得更轻松更牢固！
 
+## 软件截图：
+
+| ![image-20201130212353282](https://i.loli.net/2020/11/30/bklgf2NOVYAe35S.png) | [![DWF7PP.png](https://s3.ax1x.com/2020/11/30/DWF7PP.png)](https://imgchr.com/i/DWF7PP) | ![image-20201130212434991](https://i.loli.net/2020/11/30/HrSWZYpoXOa8RJG.png) | ![image-20201130212446775](https://i.loli.net/2020/11/30/vV42C7Zh6eaE8Kd.png) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [![DWFH8f.png](https://s3.ax1x.com/2020/11/30/DWFH8f.png)](https://imgchr.com/i/DWFH8f) | [![DWFXrQ.png](https://s3.ax1x.com/2020/11/30/DWFXrQ.png)](https://imgchr.com/i/DWFXrQ) | ![image-20201130212957509](https://i.loli.net/2020/11/30/kqVMGZRXhNyDHJf.png) | ![image-20201130213013358](https://i.loli.net/2020/11/30/fXkDwHEOuogAV2Y.png) |
+
+![image-20201130213030134](https://i.loli.net/2020/11/30/dGELzVNvYamKtgQ.png)
+
 ##  快捷体验：
 
 如果想要快速体验的话，使用 Android 手机下载该 Apk 进行体验，附上下载链接：
