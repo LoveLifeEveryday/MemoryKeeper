@@ -6,6 +6,7 @@ import com.xcynice.memorykeeper.base.BaseBean;
 import com.xcynice.memorykeeper.bean.Card;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.bean.CardBagList;
+import com.xcynice.memorykeeper.bean.CardList;
 import com.xcynice.memorykeeper.bean.CollectList;
 import com.xcynice.memorykeeper.bean.ResponseCard;
 import com.xcynice.memorykeeper.bean.UpdateCardBag;
@@ -87,7 +88,15 @@ public class API {
         Observable<BaseBean<ResponseCard>> releaseCardBag(@Body Card card);
 
 
-
+        /**
+         * 分页获取卡片信息
+         * @param id 卡包id
+         * @param pageSize 页大小
+         * @param pageNum  页数量
+         * @return
+         */
+        @GET("cardBag/get")
+        Observable<BaseBean<CardList>> getCardList(@Query("cardBagId")String id,@Query("pageSize") String pageSize, @Query("pageNum") String pageNum);
 
 
 

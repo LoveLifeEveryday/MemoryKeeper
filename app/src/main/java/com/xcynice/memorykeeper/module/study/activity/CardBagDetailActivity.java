@@ -89,7 +89,6 @@ public class CardBagDetailActivity extends BaseActivity {
                 intent.putExtras(bundle);
                 intent.setClass(CardBagDetailActivity.this, ReleaseCardActivity.class);
                 startActivity(intent);
-                startActivity(intent);
             }
         });
         mCardBagConstraintLayout.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +107,25 @@ public class CardBagDetailActivity extends BaseActivity {
 //                bundle.putString("id",cardBag.getCardBagId());
                 intent.putExtras(bundle);
                 intent.setClass(CardBagDetailActivity.this, CardBagSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnGoStudy.setOnClickListener(new View.OnClickListener() {
+
+            /**
+             * Called when a view has been clicked.
+             *
+             * @param v The view that was clicked.
+             */
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("cardBag",cardBag);
+//                bundle.putString("id",cardBag.getCardBagId());
+                intent.putExtras(bundle);
+                intent.setClass(CardBagDetailActivity.this, StudyCardActivity.class);
                 startActivity(intent);
             }
         });
