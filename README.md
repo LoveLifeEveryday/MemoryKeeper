@@ -6,6 +6,8 @@
 
 如果想要快速体验的话，使用 Android 手机下载该 Apk 进行体验，附上下载链接：
 
+https://github.com/LoveLifeEveryday/MemoryKeeper/blob/main/apk/debug/app-debug.apk
+
 ## 测试账号：
 
 > 为了方便您测试，免去繁琐的注册登陆流程，特向测试的小伙伴提供测试账号
