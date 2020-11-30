@@ -8,6 +8,8 @@
 
 https://github.com/LoveLifeEveryday/MemoryKeeper/blob/main/apk/debug/app-debug.apk
 
+或者 右侧 release 下载
+
 ## 测试账号：
 
 > 为了方便您测试，免去繁琐的注册登陆流程，特向测试的小伙伴提供测试账号
