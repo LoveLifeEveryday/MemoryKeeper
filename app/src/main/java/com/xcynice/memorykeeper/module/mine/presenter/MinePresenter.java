@@ -19,9 +19,7 @@ public class MinePresenter extends BasePresenter<IMineView> {
     }
 
 
-
-
-    public void getUserInfo(){
+    public void getUserInfo() {
         addDisposable(apiServer.getUserInfo(), new BaseObserver<BaseBean<UserInfo>>(baseView) {
 
 
@@ -32,7 +30,7 @@ public class MinePresenter extends BasePresenter<IMineView> {
 
             @Override
             public void onError(String msg) {
-baseView.getUserInfoFail(msg);
+                baseView.getUserInfoFail(msg);
             }
         });
     }

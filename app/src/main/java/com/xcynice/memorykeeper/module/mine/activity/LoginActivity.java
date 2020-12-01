@@ -91,7 +91,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
 
     @OnClick({R.id.tv_register})
     public void goRegister() {
-        ActivityUtil.startActivity(ResgisterActivity.class);
+        ActivityUtil.startActivity(RegisterActivity.class);
     }
 
 

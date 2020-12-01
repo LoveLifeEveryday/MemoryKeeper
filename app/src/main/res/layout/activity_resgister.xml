@@ -5,7 +5,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#ffffff"
-        tools:context=".module.mine.activity.ResgisterActivity">
+        tools:context=".module.mine.activity.RegisterActivity">
 
     <include layout="@layout/title_bar" />
 
@@ -37,13 +37,14 @@
                 android:textColor="#050505" />
 
         <EditText
+                android:id="@+id/et_phone"
                 android:inputType="number"
                 android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:hint="请输入手机号"
                 android:layout_marginLeft="20dp"
                 android:textColorHint="#757a90"
-                android:textColor="#ffffff"
+                android:textColor="#050505"
                 android:layout_marginRight="@dimen/dp_10"
                 android:padding="@dimen/dp_10"
                 android:layout_height="wrap_content" />
@@ -67,13 +68,14 @@
                 android:textColor="#050505" />
 
         <EditText
+                android:id="@+id/et_password"
                 android:inputType="textPassword"
                 android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:hint="请填写密码"
                 android:layout_marginLeft="20dp"
                 android:textColorHint="#757a90"
-                android:textColor="#ffffff"
+                android:textColor="#050505"
                 android:layout_marginRight="@dimen/dp_10"
                 android:padding="@dimen/dp_10"
                 android:layout_height="wrap_content" />
@@ -99,13 +101,14 @@
                 android:textColor="#050505" />
 
         <EditText
+                android:id="@+id/et_repassword"
                 android:inputType="textPassword"
                 android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:hint="请再次输入密码"
                 android:layout_marginLeft="20dp"
                 android:textColorHint="#757a90"
-                android:textColor="#ffffff"
+                android:textColor="#050505"
                 android:layout_marginRight="@dimen/dp_10"
                 android:padding="@dimen/dp_10"
                 android:layout_height="wrap_content" />
@@ -114,9 +117,8 @@
     </LinearLayout>
 
 
-
     <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="注册"

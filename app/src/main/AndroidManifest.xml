@@ -20,7 +20,7 @@
         <activity android:name=".module.mine.activity.CollectListActivity" />
         <activity android:name=".module.mine.activity.MineCardBagActivity" />
         <activity android:name=".module.mine.activity.ForgetPasswordActivity" />
-        <activity android:name=".module.mine.activity.ResgisterActivity" />
+        <activity android:name=".module.mine.activity.RegisterActivity" />
         <activity android:name=".module.mine.activity.LoginActivity" />
         <activity android:name=".module.mine.activity.MineInfoActivity" />
         <activity android:name=".module.CreateBag.activity.CreateCardActivity" />
