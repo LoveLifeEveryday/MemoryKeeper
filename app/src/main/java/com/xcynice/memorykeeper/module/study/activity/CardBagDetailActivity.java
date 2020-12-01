@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
@@ -61,6 +62,8 @@ public class CardBagDetailActivity extends BaseActivity {
     @Override
     protected void initView() {
         mConstraintLayout = findViewById(R.id.constraintLayout);
+        ImmersionBar.with(this).titleBar(mConstraintLayout).init();
+
         mBackIv = findViewById(R.id.back_iv);
         mCardBagConstraintLayout = findViewById(R.id.card_bag_constraintLayout);
         mItemPortraitImage = findViewById(R.id.item_portrait_image);
@@ -72,6 +75,18 @@ public class CardBagDetailActivity extends BaseActivity {
         if (bundle != null) {
             cardBag = (CardBag) bundle.getSerializable("cardBag");
         }
+        mBackIv.setOnClickListener(new View.OnClickListener() {
+
+            /**
+             * Called when a view has been clicked.
+             *
+             * @param v The view that was clicked.
+             */
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         mAddCard.setOnClickListener(new View.OnClickListener() {
 
 

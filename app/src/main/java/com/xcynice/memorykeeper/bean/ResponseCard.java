@@ -1,11 +1,13 @@
 package com.xcynice.memorykeeper.bean;
 
+import java.io.Serializable;
+
 /**
  * @Description:
  * @Author: Yu ki-r
  * @CreateDate: 2020/11/30 22:50
  */
-public class ResponseCard {
+public class ResponseCard implements Serializable {
 
     /**
      * cardId : 1

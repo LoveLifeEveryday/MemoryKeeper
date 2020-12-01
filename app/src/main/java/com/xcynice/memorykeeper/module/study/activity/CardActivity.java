@@ -10,6 +10,8 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
+import com.xcynice.memorykeeper.bean.CardBag;
+import com.xcynice.memorykeeper.bean.ResponseCard;
 
 public class CardActivity extends BaseActivity {
 
@@ -17,7 +19,7 @@ public class CardActivity extends BaseActivity {
     private TextView mCardQuestion;
     private TextView mCardAnswer;
     private TextView mCardMore;
-
+    private ResponseCard card;
 
 
     /**
@@ -45,8 +47,12 @@ public class CardActivity extends BaseActivity {
      */
     @Override
     protected void initView() {
-        ImmersionBar.with(this).titleBar(mCardActivity).init();
+        Bundle bundle = this.getIntent().getExtras();
+        if (bundle != null) {
+            card = (ResponseCard) bundle.getSerializable("card");
+        }
         mCardActivity = findViewById(R.id.card_activity);
+        ImmersionBar.with(this).titleBar(mCardActivity).init();
         mCardQuestion = findViewById(R.id.card_question);
         mCardAnswer = findViewById(R.id.card_answer);
         mCardMore = findViewById(R.id.card_more);
@@ -57,11 +63,9 @@ public class CardActivity extends BaseActivity {
      */
     @Override
     protected void initData() {
-
+        mCardQuestion.setText(card.getQuestion());
+        mCardAnswer.setText(card.getAnswer());
+        mCardMore.setText(card.getMore());
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 }

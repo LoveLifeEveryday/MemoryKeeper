@@ -1,6 +1,7 @@
 package com.xcynice.memorykeeper.module.study.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +33,8 @@ public class StudyCardActivity extends BaseActivity<StudyCardPresenter> implemen
     private RecyclerView mCardRv;
     private CardAdapter mAdapter;
     private List<ResponseCard> mCardList = new ArrayList<>();
+    private ConstraintLayout mConstraintLayout;
+
 
     private  CardBag cardBag;
 
@@ -75,12 +78,14 @@ public class StudyCardActivity extends BaseActivity<StudyCardPresenter> implemen
      */
     @Override
     protected void initView() {
+        mConstraintLayout = findViewById(R.id.constraintLayout);
 
+        mCardRv = findViewById(R.id.card_rv);
+        ImmersionBar.with(this).titleBar(mConstraintLayout).init();
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {
             cardBag = (CardBag) bundle.getSerializable("cardBag");
         }
-        mCardRv = findViewById(R.id.card_rv);
 
         mAdapter = new CardAdapter(R.layout.item_card);
         mAdapter.setEnableLoadMore(true);
@@ -97,7 +102,7 @@ public class StudyCardActivity extends BaseActivity<StudyCardPresenter> implemen
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 ResponseCard card = mCardList.get(i);
-                bundle.putSerializable("cardBag",cardBag);
+                bundle.putSerializable("card",card);
 //                bundle.putString("id",cardBag.getCardBagId());
                 intent.putExtras(bundle);
                 intent.setClass(StudyCardActivity.this, CardActivity.class);
