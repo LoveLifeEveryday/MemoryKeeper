@@ -14,6 +14,7 @@ import com.xcynice.memorykeeper.bean.UserInfo;
 import com.xcynice.memorykeeper.util.XUtil;
 
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.HTTP;
@@ -99,10 +100,14 @@ public class API {
         Observable<BaseBean<CardList>> getCardList(@Query("cardBagId")String id,@Query("pageSize") String pageSize, @Query("pageNum") String pageNum);
 
 
+        /**
+         * 删除卡片
+         * @param cardId
+         * @return
+         */
 
-
-
-
+        @POST("card/delById")
+        Observable<BaseBean<Integer>> deleteCard(@Query("cardId") String cardId);
 
 
 
@@ -126,6 +131,39 @@ public class API {
 
         @GET("collect/get")
         Observable<BaseBean<CollectList>> getMineCollect(@Query("pageSize") String pageSize,@Query("pageNum") String pageNum);
+
+
+
+
+        /**
+         * 注册
+         *
+         * @param info       用户信息
+         * @param repassword 用户密码
+         * @param code       验证码
+         * @return 用户注册成功数据
+         */
+        @POST("user/addUser")
+        Observable<BaseBean<String>> register(@Body RequestBody info, @Query("repassword") String repassword,
+                                              @Query("code") String code);
+
+
+
+
+        /**
+         * 改密码
+         *
+         * @param password   密码
+         * @param repassword 再次输入的密码
+         * @param phone      手机号
+         * @param code       验证码
+         * @return 是否改密码成功
+         */
+        @POST("user/resetPassByPhone")
+        Observable<BaseBean<String>> changePassword(@Query("password") String password,
+                                                    @Query("repassword") String repassword,
+                                                    @Query("phone") String phone,
+                                                    @Query("code") String code);
 
     }
 

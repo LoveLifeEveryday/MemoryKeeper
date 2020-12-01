@@ -1,5 +1,6 @@
 package com.xcynice.memorykeeper.module.study.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+
 import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
@@ -111,6 +113,17 @@ public class StudyCardActivity extends BaseActivity<StudyCardPresenter> implemen
         });
 
 
+        mAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(@NonNull BaseQuickAdapter adapter, @NonNull View view, int position) {
+                presenter.deleteCard(mCardList.get(position).getCardId());
+                mCardList.remove(position);
+                mAdapter.setNewData(mCardList);
+                return true;
+            }
+        });
+
+
     }
 
     /**
@@ -130,7 +143,7 @@ public class StudyCardActivity extends BaseActivity<StudyCardPresenter> implemen
         LogUtil.d("StudyCardActivity",String.valueOf(mCardList.size()));
         mCurrentCounter = cardList.getList().size();
         mPage = 1;
-        mAdapter.setNewData(mCardList);
+        mAdapter.setNewData(cardList.getList());
     }
 
     @Override
@@ -143,6 +156,16 @@ public class StudyCardActivity extends BaseActivity<StudyCardPresenter> implemen
 
     @Override
     public void getCardFail(String msg) {
+        ToastUtil.showToast(msg);
+    }
+
+    @Override
+    public void deleteSuccess(String msg) {
+        ToastUtil.showToast(msg);
+    }
+
+    @Override
+    public void deleteFailure(String msg) {
         ToastUtil.showToast(msg);
     }
 

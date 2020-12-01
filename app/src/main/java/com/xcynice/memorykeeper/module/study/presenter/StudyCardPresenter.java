@@ -8,6 +8,7 @@ import com.xcynice.memorykeeper.base.BasePresenter;
 import com.xcynice.memorykeeper.bean.CardBagList;
 import com.xcynice.memorykeeper.bean.CardList;
 import com.xcynice.memorykeeper.module.study.view.IStudyCardView;
+import com.xcynice.memorykeeper.util.LogUtil;
 
 /**
  * @Description:
@@ -64,6 +65,31 @@ public class StudyCardPresenter  extends BasePresenter<IStudyCardView> {
             @Override
             public void onError(String msg) {
                 baseView.getCardFail(msg);
+            }
+        });
+    }
+
+    public void deleteCard(String id){
+        addDisposable(apiServer.deleteCard(id), new BaseObserver<BaseBean<Integer>>(baseView) {
+
+
+            /**
+             * 完成
+             *
+             * @param o 对象
+             */
+            @Override
+            public void onSuccess(BaseBean<Integer> o) {
+                baseView.deleteSuccess("删除成功");
+
+                LogUtil.d("StudyCardPresenter",String.valueOf(o.data));
+                LogUtil.d("StudyCardPresenter",String.valueOf(o.code));
+
+            }
+
+            @Override
+            public void onError(String msg) {
+                baseView.deleteFailure(msg);
             }
         });
     }

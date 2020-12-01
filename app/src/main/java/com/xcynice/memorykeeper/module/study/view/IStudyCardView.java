@@ -15,4 +15,7 @@ public interface IStudyCardView extends BaseView {
     void getCardMoreSuccess(CardList cardBagList);
 
     void getCardFail(String msg);
+
+    void deleteSuccess(String msg);
+    void deleteFailure(String msg);
 }
