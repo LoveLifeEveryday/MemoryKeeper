@@ -8,9 +8,11 @@ import com.xcynice.memorykeeper.bean.CardBagList;
 import com.xcynice.memorykeeper.bean.CollectList;
 import com.xcynice.memorykeeper.bean.UpdateCardBag;
 import com.xcynice.memorykeeper.bean.UserInfo;
+import com.xcynice.memorykeeper.bean.UserRegResult;
 import com.xcynice.memorykeeper.util.XUtil;
 
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.HTTP;
@@ -56,8 +58,8 @@ public class API {
 
 
         /**
+         * 根据id删除卡包
          *
-         *  根据id删除卡包
          * @param id
          * @return
          */
@@ -66,26 +68,13 @@ public class API {
 
         /**
          * 更新卡包
+         *
          * @param id
          * @return
          */
         @HTTP(method = "POST", path = "cardBag/upDate", hasBody = true)
 //        @POST("cardBag/upDate")
-        Observable<BaseBean<String>> updateCardBag(@Query("cardBagId") String id,@Body UpdateCardBag cardBag);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Observable<BaseBean<String>> updateCardBag(@Query("cardBagId") String id, @Body UpdateCardBag cardBag);
 
 
         /**
@@ -104,8 +93,21 @@ public class API {
         Observable<BaseBean<UserInfo>> getUserInfo();
 
 
+        /**
+         * 注册
+         *
+         * @param info       用户信息
+         * @param repassword 用户密码
+         * @param code       验证码
+         * @return 用户注册成功数据
+         */
+        @POST("user/addUser")
+        Observable<BaseBean<UserRegResult>> register(@Body RequestBody info, @Query("repassword") String repassword,
+                                                     @Query("code") String code);
+
+
         @GET("collect/get")
-        Observable<BaseBean<CollectList>> getMineCollect(@Query("pageSize") String pageSize,@Query("pageNum") String pageNum);
+        Observable<BaseBean<CollectList>> getMineCollect(@Query("pageSize") String pageSize, @Query("pageNum") String pageNum);
 
     }
 
