@@ -1,7 +1,6 @@
 package com.xcynice.memorykeeper.module.mine.view;
 
 import com.xcynice.memorykeeper.base.BaseView;
-import com.xcynice.memorykeeper.bean.UserRegResult;
 
 /**
  * @author : xucanyou666
@@ -14,9 +13,9 @@ public interface IRegisterView extends BaseView {
     /**
      * 注册成功
      *
-     * @param userRegResult 注册成功的数据
+     * @param msg 注册成功信息
      */
-    void registerSuccess(UserRegResult userRegResult);
+    void registerSuccess(String msg);
 
     /**
      * 注册失败

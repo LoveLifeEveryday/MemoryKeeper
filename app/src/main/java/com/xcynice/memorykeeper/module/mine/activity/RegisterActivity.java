@@ -9,7 +9,6 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.bean.User;
-import com.xcynice.memorykeeper.bean.UserRegResult;
 import com.xcynice.memorykeeper.module.mine.presenter.RegisterPresenter;
 import com.xcynice.memorykeeper.module.mine.view.IRegisterView;
 import com.xcynice.memorykeeper.util.ToastUtil;
@@ -71,8 +70,9 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
         presenter.register(user, mEtRePassword.getText().toString());
     }
 
+
     @Override
-    public void registerSuccess(UserRegResult userRegResult) {
+    public void registerSuccess(String msg) {
         ToastUtil.showCenterToast("注册成功");
         finish();
     }

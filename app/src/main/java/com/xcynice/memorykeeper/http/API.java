@@ -8,7 +8,6 @@ import com.xcynice.memorykeeper.bean.CardBagList;
 import com.xcynice.memorykeeper.bean.CollectList;
 import com.xcynice.memorykeeper.bean.UpdateCardBag;
 import com.xcynice.memorykeeper.bean.UserInfo;
-import com.xcynice.memorykeeper.bean.UserRegResult;
 import com.xcynice.memorykeeper.util.XUtil;
 
 import io.reactivex.Observable;
@@ -102,7 +101,7 @@ public class API {
          * @return 用户注册成功数据
          */
         @POST("user/addUser")
-        Observable<BaseBean<UserRegResult>> register(@Body RequestBody info, @Query("repassword") String repassword,
+        Observable<BaseBean<String>> register(@Body RequestBody info, @Query("repassword") String repassword,
                                                      @Query("code") String code);
 
 

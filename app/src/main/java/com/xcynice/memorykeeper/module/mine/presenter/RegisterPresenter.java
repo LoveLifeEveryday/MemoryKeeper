@@ -5,7 +5,6 @@ import com.xcynice.memorykeeper.base.BaseBean;
 import com.xcynice.memorykeeper.base.BaseObserver;
 import com.xcynice.memorykeeper.base.BasePresenter;
 import com.xcynice.memorykeeper.bean.User;
-import com.xcynice.memorykeeper.bean.UserRegResult;
 import com.xcynice.memorykeeper.module.mine.view.IRegisterView;
 
 import okhttp3.MediaType;
@@ -37,12 +36,14 @@ public class RegisterPresenter extends BasePresenter<IRegisterView> {
         String json = gson.toJson(user);
         //noinspection deprecation
         RequestBody responseBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), json);
-        addDisposable(apiServer.register(responseBody, repassword, "1231"), new BaseObserver<BaseBean<UserRegResult>>(baseView, true) {
+        addDisposable(apiServer.register(responseBody, repassword, "1231"), new BaseObserver<BaseBean<String>>(baseView, true) {
+
+
 
 
             @Override
-            public void onSuccess(BaseBean<UserRegResult> o) {
-                baseView.registerSuccess(o.data);
+            public void onSuccess(BaseBean<String> o) {
+          baseView.registerSuccess(o.msg);
             }
 
             @Override
