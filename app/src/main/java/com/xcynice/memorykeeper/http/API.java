@@ -109,6 +109,21 @@ public class API {
         @GET("collect/get")
         Observable<BaseBean<CollectList>> getMineCollect(@Query("pageSize") String pageSize, @Query("pageNum") String pageNum);
 
+
+        /**
+         * 改密码
+         *
+         * @param password   密码
+         * @param repassword 再次输入的密码
+         * @param phone      手机号
+         * @param code       验证码
+         * @return 是否改密码成功
+         */
+        @POST("user/resetPassByPhone")
+        Observable<BaseBean<String>> changePassword(@Query("password") String password,
+                                                    @Query("repassword") String repassword,
+                                                    @Query("phone") String phone,
+                                                    @Query("code") String code);
     }
 
 }
