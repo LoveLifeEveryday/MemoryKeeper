@@ -70,6 +70,11 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
         presenter.register(user, mEtRePassword.getText().toString());
     }
 
+    @OnClick({R.id.title_bar_return})
+    public void back() {
+        finish();
+    }
+
 
     @Override
     public void registerSuccess(String msg) {

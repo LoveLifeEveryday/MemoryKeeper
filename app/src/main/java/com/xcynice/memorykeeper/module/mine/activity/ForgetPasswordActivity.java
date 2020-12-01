@@ -72,6 +72,11 @@ public class ForgetPasswordActivity extends BaseActivity<ForgetPasswordPresenter
         ToastUtil.showCenterToast(msg);
         finish();
     }
+    @OnClick({R.id.title_bar_return})
+    public void back() {
+        finish();
+    }
+
 
     @Override
     public void changePasswordFail(String msg) {
