@@ -2,7 +2,7 @@
     <string name="app_name">记忆管家</string>
     <string name="gsonIsNull">gson == null</string>
     <string name="MEDIA_TYPE">application/json; charset=UTF-8</string>
-    <string name="baseUrl">http://39.99.167.141:8083/</string>
+    <string name="baseUrl">http://47.94.110.49:8083/</string>
     <string name="errorCode">code</string>
     <string name="loginFail">登录失效，请重新登录</string>
     <string name="PARSE_ERROR_MSG">解析数据失败</string>

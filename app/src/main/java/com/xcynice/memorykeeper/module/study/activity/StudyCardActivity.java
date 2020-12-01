@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.gyf.immersionbar.ImmersionBar;
 import com.xcynice.memorykeeper.R;
 import com.xcynice.memorykeeper.base.BaseActivity;
 import com.xcynice.memorykeeper.base.BasePresenter;
+import com.xcynice.memorykeeper.bean.Card;
 import com.xcynice.memorykeeper.bean.CardBag;
 import com.xcynice.memorykeeper.bean.CardList;
 import com.xcynice.memorykeeper.bean.ResponseCard;
@@ -86,7 +89,21 @@ public class StudyCardActivity extends BaseActivity<StudyCardPresenter> implemen
         mAdapter.setOnLoadMoreListener(this,mCardRv);
         mCardRv.setAdapter(mAdapter);
 
+        //item点击事件
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener(){
 
+            @Override
+            public void onItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                ResponseCard card = mCardList.get(i);
+                bundle.putSerializable("cardBag",cardBag);
+//                bundle.putString("id",cardBag.getCardBagId());
+                intent.putExtras(bundle);
+                intent.setClass(StudyCardActivity.this, CardActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
@@ -100,11 +117,7 @@ public class StudyCardActivity extends BaseActivity<StudyCardPresenter> implemen
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_study_card);
-    }
+
 
     @Override
     public void getCardFirstSuccess(CardList cardList) {

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/card_activity"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#27bda2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/card_question"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
@@ -19,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/card_answer"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:text="答案"
@@ -27,10 +29,10 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/card_question" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/card_more"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginBottom="24dp"
